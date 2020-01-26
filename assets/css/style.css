@@ -6,6 +6,7 @@ body {
     background-color: darkgreen;
     height: 60vh;
     width: 80vh;
+    margin: 0 auto;
 }
 
 .levelButton {

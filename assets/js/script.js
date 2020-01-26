@@ -13,6 +13,20 @@ function shuffle(array) {
     return array;
 }
 
+
+// Use localStorage to store input from levelselection.html
+// and run generateBoard on gameplay.html.
+// Solution obtained from Stack Overflow & W3Schools
+function levelSelect(selection) {
+    localStorage.setItem("difficultyLevel", selection);
+    window.open("gameplay.html", "_self", true);
+    window.onload = function () {
+    difficultyLevel = localStorage.getItem("difficultyLevel");
+    gameBoard.generateBoard(difficultyLevel);
+    }
+}
+
+
 //Create gameBoard object to handle game tile management 
 var gameBoard = {
     
