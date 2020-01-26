@@ -15,15 +15,11 @@ function shuffle(array) {
 
 
 // Use localStorage to store input from levelselection.html
-// and run generateBoard on gameplay.html.
+// before opening gameplay.html.
 // Solution obtained from Stack Overflow & W3Schools
 function levelSelect(selection) {
     localStorage.setItem("difficultyLevel", selection);
-    window.open("gameplay.html", "_self", true);
-    window.onload = function () {
-    difficultyLevel = localStorage.getItem("difficultyLevel");
-    gameBoard.generateBoard(difficultyLevel);
-    }
+    window.open("gameplay.html", "_self", false);
 }
 
 
@@ -36,6 +32,7 @@ var gameBoard = {
     selectedTileTwo: null,
 
     generateBoard: function(difficultyLevel) {
+        var difficultyLevel = localStorage.getItem("difficultyLevel");
         let shuffledSet = shuffle(tileSets[difficultyLevel]);
         let tilePair;
         for (tileNumber of shuffledSet) {
@@ -51,7 +48,7 @@ var gameBoard = {
                 completed: false
             });
         }
-        view.displayBoard(gameSet);  // displayBoard function to be completed
+        view.displayBoard(this.gameSet);
         view.displayMessage("Good luck!");      // displayMessage function to be completed
         handlers.startClock();   // startClock function to be completed
     },
@@ -96,8 +93,20 @@ var gameBoard = {
             view.unflipTiles(); // to be defined
             this.unselectAll();
         }
+    }    
+}
+
+var view = {
+    displayBoard: function(set) {
+        let gameArea = $("#gameArea");
+        for (tile of set) {
+            let tileDiv = document.createElement("div");
+            tileDiv.className = `tile pair${tile.pairID} faceDown`
+            gameArea.append(tileDiv);
+        }
+    },
+
+    flipTile: function(selectedTile) {
+
     }
-        
-
-
 }

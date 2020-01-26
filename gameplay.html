@@ -11,16 +11,14 @@
 	<script src="https://kit.fontawesome.com/0467a2a6b6.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <script type="text/javascript" src="assets/js/script.js"></script>
-	
 </head>
 
-<body>
+<body onload="gameBoard.generateBoard('difficultyLevel')">
     <div class="container">
         <div class="playArea" id="messageArea">
             Test message
         </div>
         <div class="playArea" id="gameArea">
-            &nbsp;
         </div>
         <div class="playArea" id="clockArea">
             Time elapsed:
