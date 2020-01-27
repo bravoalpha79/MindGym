@@ -50,27 +50,28 @@ var gameBoard = {
         }
         view.displayBoard(this.gameSet);
         view.displayMessage("Good luck!");      // displayMessage function to be completed
-        handlers.startClock();   // startClock function to be completed
+        handlers.clickExpect();
+        //handlers.startClock();   // startClock function to be completed
     },
 
     selectTile: function(clickedTileID) {
         let selectedTile = this.gameSet[clickedTileID];
         if (selectedTile.completed === false) {
             if (selectedTile.selected === true) {
-                view.displayMessage("Tile already selected.");   // displayMessage function to be completed
+                view.displayMessage("Tile already selected.");  
             } else {
-                view.flipTile(clickedTileID);    // flipTile function to be completed
-                if (!this.selectedTileOne) {
-                    selectedTile.selected = true;
-                    this.selectedTileOne = clickedTileID;
-                } else {
+                if (this.selectedTileOne) {
                     selectedTile.selected = true;
                     this.selectedTileTwo = clickedTileID;
                     this.checkMatch(this.selectedTileOne, this.selectedTileTwo); 
+                } else {    
+                    selectedTile.selected = true;
+                    this.selectedTileOne = clickedTileID;
                 }
+                view.flipTile(clickedTileID);
             }
         } else {
-            view.displayMessage("No tile here. :)")  // displayMessage function to be completed
+            view.displayMessage("No tile here. :)")  
         }
     },
 
@@ -83,30 +84,73 @@ var gameBoard = {
     },
 
     checkMatch: function(selectedTileOne, selectedTileTwo) {
-        if (this.gameSet[selectedTileOne].pairID === this.gameset[selectedTileTwo].pairID) {
+        handlers.disableClick();
+        if (this.gameSet[selectedTileOne].pairID === this.gameSet[selectedTileTwo].pairID) {
             this.gameSet[selectedTileOne].completed === true;
             this.gameSet[selectedTileOne].completed === true;
-            view.displaySuccessMessage();  // to be defined
-            view.removeMatchedTiles();     // to be defined  
+            view.displaySuccessMessage();  
+            view.removeMatchedTiles();     // to be defined
+            this.unselectAll();  
         } else {
-            view.displayFailureMessage();  // to be defined
-            view.unflipTiles(); // to be defined
+            view.displayFailureMessage(); 
+            view.unflipTiles(); 
             this.unselectAll();
         }
+        handlers.clickExpect();
     }    
 }
+
+
+var handlers = {
+    // clickExpect function set up based on a video by Watch and Code
+    clickExpect: function() {
+        $("#gameArea").click(function(event) {
+            let clicked = event.target;
+            if (clicked.className.includes("tile")) {
+                let position = parseInt(clicked.id);
+                gameBoard.selectTile(position);
+            }
+        });
+    },
+
+    disableClick: function() {
+        $("#gameArea").off("click");
+    }
+}
+
 
 var view = {
     displayBoard: function(set) {
         let gameArea = $("#gameArea");
         for (tile of set) {
             let tileDiv = document.createElement("div");
+            tileDiv.id = `${tile.position}`;
             tileDiv.className = `tile pair${tile.pairID} faceDown`
             gameArea.append(tileDiv);
         }
     },
 
     flipTile: function(selectedTile) {
+        $(`#${selectedTile}`).removeClass("faceDown");
+    },
 
+    unflipTiles: function() {
+        $(".tile").not(".faceDown").addClass("faceDown");
+    },
+
+    displayMessage: function(messageText) {
+        $("#messageArea").text(messageText);
+    },
+
+    displaySuccessMessage: function() {
+        var messages = ["Nice!", "Good job!", "Got it!", "Super!"];
+        let messageChoice = messages[Math.round(Math.random()*3)];
+        this.displayMessage(messageChoice);
+    },
+
+    displayFailureMessage: function() {
+        var messages = ["Close... but no. :)", "Nope. Try again.", "Almost... but not quite. :)"];
+        let messageChoice = messages[Math.round(Math.random()*2)];
+        this.displayMessage(messageChoice);
     }
 }
