@@ -28,3 +28,8 @@ body {
 .faceDown {
     background-color: aqua;
 }
+
+.completed {
+    background-color: transparent;
+    border: none;
+}

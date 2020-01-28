@@ -1,7 +1,7 @@
 var tileSets = {
-    "Beginner": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    "Intermediate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-    "Expert": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+    "beginner": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+    "intermediate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+    "expert": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
 };
 
 //Shuffle algorithm obtained from Stack Overflow
@@ -44,8 +44,6 @@ var gameBoard = {
             this.gameSet.push ({
                 position: shuffledSet.indexOf(tileNumber),
                 pairID: tilePair,
-                selected: false,
-                completed: false
             });
         }
         view.displayBoard(this.gameSet);
@@ -105,13 +103,11 @@ var handlers = {
     // clickExpect function set up based on a video by Watch and Code
     // and a post on Stack Overflow
     clickExpect: function() {
-        $("#gameArea").click(function(event) {
+        $("#gameArea").children().not(".completed").click(function(event) {
             let clicked = event.target;
             if (clicked.className.includes("tile")) {
-                if (clicked.className.indexOf("completed") === -1)) {
                 let position = Number.parseInt(clicked.id);
                 view.selectTile(position);
-                }
             }
         });
     },
@@ -121,37 +117,33 @@ var handlers = {
     }
 }
 
-
 var view = {
+
     displayBoard: function(set) {
+        let difficulty = localStorage.getItem("difficultyLevel")
         let gameArea = $("#gameArea");
         for (tile of set) {
             let tileDiv = document.createElement("div");
             tileDiv.id = `${tile.position}`;
-            tileDiv.className = `tile pair${tile.pairID} faceDown`
+            tileDiv.className = `tile ${difficulty}Pair${tile.pairID} faceDown`
             gameArea.append(tileDiv);
         }
     },
 
     selectTile: function(position) {
-        let selectedTiles = $(".tile").not(".faceDown");
-        
-        while (selectedTiles.length < 2) {
-            $(`#${position}`).removeClass("faceDown");
-            this.flipTile(position);
-        }
-        if (selectedTiles.length = 2) {
+        $(`#${position}`).removeClass("faceDown");
+
+        var selectedTiles = $(".tile").not(".faceDown");
+
+        if (selectedTiles.length === 2) {
             handlers.disableClick();
             this.checkMatch(selectedTiles);
         }
     },
 
-    flipTile: function(selectedTile) {
-        $(`#${selectedTile}`).removeClass("faceDown");
-    },
-
-    unflipTiles: function() {
-        $(".tile").not(".faceDown").addClass("faceDown");
+    unflipTiles: function(tileOne, tileTwo) {
+        tileOne.classList.add("faceDown");
+        tileTwo.classList.add("faceDown");
     },
 
     checkMatch: function(selectedTiles) {
@@ -160,7 +152,7 @@ var view = {
 
         if (tileOne.className !== tileTwo.className) {
             this.displayFailureMessage();
-            this.unflipTiles();
+            this.unflipTiles(tileOne, tileTwo);
             handlers.clickExpect();
         } else {
             this.displaySuccessMessage();
@@ -170,8 +162,8 @@ var view = {
     },
 
     removeMatchedTiles: function(tileOne, tileTwo) {
-        tileOne.addClass("completed");
-        tileTwo.addClass("completed");
+        tileOne.classList.add("completed");
+        tileTwo.classList.add("completed");
     },
 
     displayMessage: function(messageText) {
