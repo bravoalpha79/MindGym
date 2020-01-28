@@ -49,66 +49,69 @@ var gameBoard = {
             });
         }
         view.displayBoard(this.gameSet);
-        view.displayMessage("Good luck!");      // displayMessage function to be completed
+        view.displayMessage("Good luck!");     
         handlers.clickExpect();
         //handlers.startClock();   // startClock function to be completed
     },
 
-    selectTile: function(clickedTileID) {
-        let selectedTile = this.gameSet[clickedTileID];
-        if (selectedTile.completed === false) {
-            if (selectedTile.selected === true) {
-                view.displayMessage("Tile already selected.");  
-            } else {
-                if (this.selectedTileOne) {
-                    selectedTile.selected = true;
-                    this.selectedTileTwo = clickedTileID;
-                    this.checkMatch(this.selectedTileOne, this.selectedTileTwo); 
-                } else {    
-                    selectedTile.selected = true;
-                    this.selectedTileOne = clickedTileID;
-                }
-                view.flipTile(clickedTileID);
-            }
-        } else {
-            view.displayMessage("No tile here. :)")  
-        }
-    },
+    // selectTile: function(clickedTileID) {
+    //     let selectedTile = this.gameSet[clickedTileID];
+    //     if (selectedTile.completed === false) {
+    //         if (selectedTile.selected === true) {
+    //             view.displayMessage("Tile already selected.");  
+    //         } else {
+    //             if (this.selectedTileOne) {
+    //                 selectedTile.selected = true;
+    //                 this.selectedTileTwo = clickedTileID;
+    //                 this.checkMatch(this.selectedTileOne, this.selectedTileTwo); 
+    //             } else {    
+    //                 selectedTile.selected = true;
+    //                 this.selectedTileOne = clickedTileID;
+    //             }
+    //             view.flipTile(clickedTileID);
+    //         }
+    //     } else {
+    //         view.displayMessage("No tile here. :)")  
+    //     }
+    // },
 
-    unselectAll: function() {
-        for (tile of this.gameSet) {
-            tile.selected = false;
-        }
-        this.selectedTileOne = null;
-        this.selectedTileTwo = null;
-    },
+    // unselectAll: function() {
+    //     for (tile of this.gameSet) {
+    //         tile.selected = false;
+    //     }
+    //     this.selectedTileOne = null;
+    //     this.selectedTileTwo = null;
+    // },
 
-    checkMatch: function(selectedTileOne, selectedTileTwo) {
-        handlers.disableClick();
-        if (this.gameSet[selectedTileOne].pairID === this.gameSet[selectedTileTwo].pairID) {
-            this.gameSet[selectedTileOne].completed === true;
-            this.gameSet[selectedTileOne].completed === true;
-            view.displaySuccessMessage();  
-            view.removeMatchedTiles();     // to be defined
-            this.unselectAll();  
-        } else {
-            view.displayFailureMessage(); 
-            view.unflipTiles(); 
-            this.unselectAll();
-        }
-        handlers.clickExpect();
-    }    
+    // checkMatch: function(selectedTileOne, selectedTileTwo) {
+    //     handlers.disableClick();
+    //     if (this.gameSet[selectedTileOne].pairID === this.gameSet[selectedTileTwo].pairID) {
+    //         this.gameSet[selectedTileOne].completed === true;
+    //         this.gameSet[selectedTileOne].completed === true;
+    //         view.displaySuccessMessage();  
+    //         view.removeMatchedTiles();     // to be defined
+    //         this.unselectAll();  
+    //     } else {
+    //         view.displayFailureMessage(); 
+    //         view.unflipTiles(); 
+    //         this.unselectAll();
+    //     }
+    //     handlers.clickExpect();
+    // }    
 }
 
 
 var handlers = {
     // clickExpect function set up based on a video by Watch and Code
+    // and a post on Stack Overflow
     clickExpect: function() {
         $("#gameArea").click(function(event) {
             let clicked = event.target;
             if (clicked.className.includes("tile")) {
-                let position = parseInt(clicked.id);
-                gameBoard.selectTile(position);
+                if (clicked.className.indexOf("completed") === -1)) {
+                let position = Number.parseInt(clicked.id);
+                view.selectTile(position);
+                }
             }
         });
     },
@@ -130,12 +133,45 @@ var view = {
         }
     },
 
+    selectTile: function(position) {
+        let selectedTiles = $(".tile").not(".faceDown");
+        
+        while (selectedTiles.length < 2) {
+            $(`#${position}`).removeClass("faceDown");
+            this.flipTile(position);
+        }
+        if (selectedTiles.length = 2) {
+            handlers.disableClick();
+            this.checkMatch(selectedTiles);
+        }
+    },
+
     flipTile: function(selectedTile) {
         $(`#${selectedTile}`).removeClass("faceDown");
     },
 
     unflipTiles: function() {
         $(".tile").not(".faceDown").addClass("faceDown");
+    },
+
+    checkMatch: function(selectedTiles) {
+        let tileOne = selectedTiles[0];
+        let tileTwo = selectedTiles[1];
+
+        if (tileOne.className !== tileTwo.className) {
+            this.displayFailureMessage();
+            this.unflipTiles();
+            handlers.clickExpect();
+        } else {
+            this.displaySuccessMessage();
+            this.removeMatchedTiles(tileOne, tileTwo);
+            handlers.clickExpect();
+        }
+    },
+
+    removeMatchedTiles: function(tileOne, tileTwo) {
+        tileOne.addClass("completed");
+        tileTwo.addClass("completed");
     },
 
     displayMessage: function(messageText) {
