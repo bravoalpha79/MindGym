@@ -110,12 +110,11 @@ var handlers = {
                 view.selectTile(position);
             }
         });
-        return;
     },
 
-    // disableClick: function() {
-    //     $("#gameArea").children().not(".completed").off();
-    // }
+    disableClick: function() {
+         $("#gameArea").children().not(".completed").off();
+    }
 }
 
 var view = {
@@ -140,13 +139,9 @@ var view = {
         var selectedTiles = $(".tile").not(".faceDown");
 
         if (selectedTiles.length === 2) {
-            $("#gameArea").children().not(".completed").off();
-            setTimeout(function () {
+            handlers.disableClick();
             view.checkMatch(selectedTiles);
-            }, 200);
         }
-
-        return;
     },
 
     unflipTiles: function(tileOne, tileTwo) {
@@ -162,15 +157,16 @@ var view = {
             this.displayFailureMessage();
             setTimeout(function () {
                 view.unflipTiles(tileOne, tileTwo);
-            }, 2000);
-            handlers.clickExpect(); 
+            }, 1500); 
         } else {
             this.displaySuccessMessage();
             setTimeout(function () {
                 view.removeMatchedTiles(tileOne, tileTwo);
-            }, 2000);
-            handlers.clickExpect();
+            }, 1500);  
         }
+        setTimeout(function () {
+             handlers.clickExpect();
+        }, 1600);
     },
 
     removeMatchedTiles: function(tileOne, tileTwo) {
