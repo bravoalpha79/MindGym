@@ -103,18 +103,19 @@ var handlers = {
     // clickExpect function set up based on a video by Watch and Code
     // and a post on Stack Overflow
     clickExpect: function() {
-        $("#gameArea").children().not(".completed").click(function(event) {
+        $("#gameArea").children().not(".completed").on("click", function(event) {
             let clicked = event.target;
             if (clicked.className.includes("tile")) {
                 let position = Number.parseInt(clicked.id);
                 view.selectTile(position);
             }
         });
+        return;
     },
 
-    disableClick: function() {
-        $("#gameArea").off("click");
-    }
+    // disableClick: function() {
+    //     $("#gameArea").children().not(".completed").off();
+    // }
 }
 
 var view = {
@@ -132,13 +133,20 @@ var view = {
 
     selectTile: function(position) {
         $(`#${position}`).removeClass("faceDown");
+        this.isPair();
+    },
 
+    isPair: function () {
         var selectedTiles = $(".tile").not(".faceDown");
 
         if (selectedTiles.length === 2) {
-            handlers.disableClick();
-            this.checkMatch(selectedTiles);
+            $("#gameArea").children().not(".completed").off();
+            setTimeout(function () {
+            view.checkMatch(selectedTiles);
+            }, 200);
         }
+
+        return;
     },
 
     unflipTiles: function(tileOne, tileTwo) {
@@ -152,18 +160,22 @@ var view = {
 
         if (tileOne.className !== tileTwo.className) {
             this.displayFailureMessage();
-            this.unflipTiles(tileOne, tileTwo);
-            handlers.clickExpect();
+            setTimeout(function () {
+                view.unflipTiles(tileOne, tileTwo);
+            }, 2000);
+            handlers.clickExpect(); 
         } else {
             this.displaySuccessMessage();
-            this.removeMatchedTiles(tileOne, tileTwo);
+            setTimeout(function () {
+                view.removeMatchedTiles(tileOne, tileTwo);
+            }, 2000);
             handlers.clickExpect();
         }
     },
 
     removeMatchedTiles: function(tileOne, tileTwo) {
-        tileOne.classList.add("completed");
-        tileTwo.classList.add("completed");
+        tileOne.classList.add("faceDown", "completed");
+        tileTwo.classList.add("faceDown", "completed");
     },
 
     displayMessage: function(messageText) {

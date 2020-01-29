@@ -25,11 +25,46 @@ body {
     border: 1px solid black;
 }
 
+
+/* Beginner tile set */
+.beginnerPair1 {
+    background-color: blueviolet;
+}
+
+.beginnerPair2 {
+    background-color: plum;
+}
+
+.beginnerPair3 {
+    background-color: cornflowerblue;
+}
+
+.beginnerPair4 {
+    background-color: chartreuse;
+}
+
+.beginnerPair5 {
+    background-color: beige;
+}
+
+.beginnerPair6 {
+    background-color: coral;
+}
+
+.beginnerPair7 {
+    background-color: darkred;
+}
+
+.beginnerPair8 {
+    background-color: teal;
+}
+
+
 .faceDown {
-    background-color: aqua;
+    background: url("../img/background.jpg") center center no-repeat;
 }
 
 .completed {
-    background-color: transparent;
+    background: transparent;
     border: none;
 }
