@@ -11,18 +11,17 @@
 	<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 </head>
 
-<body onload="gameBoard.generateBoard('difficultyLevel')">
+<body onload="gameBoard.generateBoard()">
     <div class="container">
         <div class="playArea" id="messageArea">
             Test message
         </div>
         <div class="playArea" id="gameArea">
         </div>
-        <div class="playArea" id="clockArea">
-            Time elapsed:
-        </div>
-        <div class="playArea" id="restartButton">
-            <button>Restart</button>
+        <div class="playArea" id="restartArea">
+            <form id="restartForm">
+                <button id="restartButton" onclick="gameBoard.restartGame()">Restart</button>
+            </form>
         </div>
     
     </div>

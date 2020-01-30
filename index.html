@@ -12,16 +12,62 @@
 </head>
 
 <body>
-    <div>
-        <h1>Welcome to MindGym!</h1>
-    </div>
-    <div>
-        Hero image here
-    </div>
-    <div>
-        <span><a href="levelselection.html">Play!</a></span>
-        <span><a href=""><i class="fas fa-question-circle"></i></a></span>
-    </div>
+
+	<!-- Navbar code copied from Bootstrap documentation and adapted -->
+	<nav class="navbar navbar-expand-sm navbar-light bg-light">
+		<a class="navbar-brand" href="#">Navbar</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="levelselection.html">Play</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#" data-toggle="modal" data-target="#instructionsModal">Instructions</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- /.Navbar -->
+	<div>
+		<h1>Welcome to MindGym!</h1>
+	</div>
+	<div>
+		Hero image here
+	</div>
+	<div>
+		<form action="levelselection.html">
+            <button id="playButton" type="submit">Play!</button>
+            <span><a href="#" data-toggle="modal" data-target="#instructionsModal"><i class="fas fa-question-circle"></i></a></span>
+		</form>
+		
+	</div>
+	<!-- Modal code copied from Bootstrap documentation and adapted -->
+	<div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="instructionsModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="instructionsModalLabel">How to Play</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+				</div>
+				<div class="modal-body">
+					Instructions text here.
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!-- /.Modal -->
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
@@ -32,8 +78,8 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 	</script>
-    <script src="https://kit.fontawesome.com/0467a2a6b6.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/js/script.js"></script>
+	<script src="https://kit.fontawesome.com/0467a2a6b6.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 
 </html>

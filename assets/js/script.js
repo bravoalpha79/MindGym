@@ -34,9 +34,6 @@ function levelSelect(selection) {
     window.open("gameplay.html", "_self", false);
 }
 
-
-
-
 // The gameBoard object handles tile management logic.
 var gameBoard = {
 
@@ -48,7 +45,7 @@ var gameBoard = {
      * equals its position in the new (shuffled) array. 
      * The resulting array is the gameSet array of tile objects.  
      **/ 
-    generateBoard: function (difficultyLevel) {
+    generateBoard: function () {
         var difficultyLevel = localStorage.getItem("difficultyLevel");
         let shuffledSet = shuffle(tileSets[difficultyLevel]);
         let tilePair;
@@ -66,7 +63,6 @@ var gameBoard = {
         view.displayBoard(this.gameSet);
         view.displayMessage("Good luck!");
         handlers.clickExpect();
-
     }, 
 
     // check if two tiles have been selected
@@ -105,9 +101,17 @@ var gameBoard = {
     checkBoardCleared: function () {
         if ($(".tile.completed").length === gameBoard.gameSet.length) {
             view.displayMessage("Congratulations!!! Game completed!");
+            view.displayPlayAgainButton();
         } else {
             handlers.clickExpect();
         }
+    },
+
+    restartGame: function () {
+        window.open("gameplay.html", "_self", false);
+        setTimeout(function () {
+            gameBoard.generateBoard();
+        }, 200);
     }
 }
 
@@ -177,5 +181,10 @@ var view = {
         var messages = ["Close... but no. :)", "Nope. Try again.", "Almost... but not quite. :)"];
         let messageChoice = messages[Math.round(Math.random() * 2)];
         this.displayMessage(messageChoice);
+    },
+
+    displayPlayAgainButton: function () {
+        $("#restartForm").attr("action", "levelselection.html");
+        $("#restartButton").removeAttr("onclick").attr("type", "submit").text("Play again?");
     }
 }
