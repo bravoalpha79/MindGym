@@ -1,10 +1,21 @@
+/** 
+ * Generate tile set with number of tiles corresponding to difficulty level. 
+ * In order to avoid manual creation of arrays with 16, 24 and 36 elements,
+ * generation function created (adapted) from the one provided by Eventyret_mentor.
+ **/
+
 var tileSets = {
-    "beginner": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    "intermediate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-    "expert": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+    beginner: createSet(16),
+    intermediate: createSet(24),
+    expert: createSet(36)
 };
 
-//Shuffle algorithm obtained from Stack Overflow
+function createSet(amount) {
+  return Array.from(Array(amount+1).keys()).slice(1);
+}
+
+
+// Shuffle algorithm obtained from Stack Overflow
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -14,20 +25,29 @@ function shuffle(array) {
 }
 
 
-// Use localStorage to store input from levelselection.html
-// before opening gameplay.html.
-// Solution obtained from Stack Overflow & W3Schools
+/** 
+ * Use localStorage to store input from levelselection.html before opening gameplay.html.
+ * Solution obtained from Stack Overflow & W3Schools.
+ **/
 function levelSelect(selection) {
     localStorage.setItem("difficultyLevel", selection);
     window.open("gameplay.html", "_self", false);
 }
 
 
-//Create gameBoard object to handle game tile management 
+
+
+// The gameBoard object handles tile management logic.
 var gameBoard = {
 
     gameSet: [],
 
+    /** 
+     * Shuffle the original tileSet (based on difficultyLevel selection) and assign a "pairID" property to each shuffled tile, 
+     * based on its number (position) in the original tileSet. The "position" property of the tile 
+     * equals its position in the new (shuffled) array. 
+     * The resulting array is the gameSet array of tile objects.  
+     **/ 
     generateBoard: function (difficultyLevel) {
         var difficultyLevel = localStorage.getItem("difficultyLevel");
         let shuffledSet = shuffle(tileSets[difficultyLevel]);
@@ -46,16 +66,58 @@ var gameBoard = {
         view.displayBoard(this.gameSet);
         view.displayMessage("Good luck!");
         handlers.clickExpect();
-        //handlers.startClock();   // startClock function to be completed
+
+    }, 
+
+    // check if two tiles have been selected
+    isPair: function () {
+        var selectedTiles = $(".tile").not(".faceDown");
+
+        if (selectedTiles.length === 2) {
+            handlers.disableClick();
+            this.checkMatch(selectedTiles);
+        }
+    },
+
+    // check if the two selected tiles match
+    checkMatch: function (selectedTiles) {
+        let tileOne = selectedTiles[0];
+        let tileTwo = selectedTiles[1];
+
+        if (tileOne.className !== tileTwo.className) {
+            view.displayFailureMessage();
+            setTimeout(function () {
+                view.unflipTiles(tileOne, tileTwo);
+            }, 1500);
+            setTimeout(function () {
+                handlers.clickExpect();
+            }, 1600);
+        } else {
+            view.displaySuccessMessage();
+            setTimeout(function () {
+                view.removeMatchedTiles(tileOne, tileTwo);
+                gameBoard.checkBoardCleared();
+            }, 1500);
+        }
+    },
+
+    // check if all tiles have been cleared from the board
+    checkBoardCleared: function () {
+        if ($(".tile.completed").length === gameBoard.gameSet.length) {
+            view.displayMessage("Congratulations!!! Game completed!");
+        } else {
+            handlers.clickExpect();
+        }
     }
 }
 
-
+// Object for managing tile click enabling and disabling.
 var handlers = {
-    /** 
-     * clickExpect function set up based on a video by Watch and Code
-     * and a post on Stack Overflow
-    **/
+
+/** 
+ * clickExpect function set up based on a video by Watch and Code
+ * and a post on Stack Overflow.
+ **/
     clickExpect: function () {
         $("#gameArea").children().not(".completed").on("click", function (event) {
             let clicked = event.target;
@@ -71,6 +133,8 @@ var handlers = {
     }
 }
 
+
+// Object for managing the display of tiles and game messages.
 var view = {
 
     displayBoard: function (set) {
@@ -86,16 +150,7 @@ var view = {
 
     selectTile: function (position) {
         $(`#${position}`).removeClass("faceDown");
-        this.isPair();
-    },
-
-    isPair: function () {
-        var selectedTiles = $(".tile").not(".faceDown");
-
-        if (selectedTiles.length === 2) {
-            handlers.disableClick();
-            view.checkMatch(selectedTiles);
-        }
+        gameBoard.isPair();
     },
 
     unflipTiles: function (tileOne, tileTwo) {
@@ -103,39 +158,9 @@ var view = {
         tileTwo.classList.add("faceDown");
     },
 
-    checkMatch: function (selectedTiles) {
-        let tileOne = selectedTiles[0];
-        let tileTwo = selectedTiles[1];
-
-        if (tileOne.className !== tileTwo.className) {
-            this.displayFailureMessage();
-            setTimeout(function () {
-                view.unflipTiles(tileOne, tileTwo);
-            }, 1500);
-            setTimeout(function () {
-                handlers.clickExpect();
-            }, 1600);
-        } else {
-            this.displaySuccessMessage();
-            setTimeout(function () {
-                view.removeMatchedTiles(tileOne, tileTwo);
-                view.checkBoardCleared();
-            }, 1500);
-        }
-
-    },
-
     removeMatchedTiles: function (tileOne, tileTwo) {
         tileOne.classList.add("faceDown", "completed");
         tileTwo.classList.add("faceDown", "completed");
-    },
-
-    checkBoardCleared: function () {
-        if ($(".tile.completed").length === gameBoard.gameSet.length) {
-            displayMessage("Congratulations!!! Game completed!");
-        } else {
-            handlers.clickExpect();
-        }
     },
 
     displayMessage: function (messageText) {
