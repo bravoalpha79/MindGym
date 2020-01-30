@@ -28,9 +28,6 @@ var gameBoard = {
     
     gameSet: [],
     
-    selectedTileOne: null,
-    selectedTileTwo: null,
-
     generateBoard: function(difficultyLevel) {
         var difficultyLevel = localStorage.getItem("difficultyLevel");
         let shuffledSet = shuffle(tileSets[difficultyLevel]);
@@ -50,52 +47,7 @@ var gameBoard = {
         view.displayMessage("Good luck!");     
         handlers.clickExpect();
         //handlers.startClock();   // startClock function to be completed
-    },
-
-    // selectTile: function(clickedTileID) {
-    //     let selectedTile = this.gameSet[clickedTileID];
-    //     if (selectedTile.completed === false) {
-    //         if (selectedTile.selected === true) {
-    //             view.displayMessage("Tile already selected.");  
-    //         } else {
-    //             if (this.selectedTileOne) {
-    //                 selectedTile.selected = true;
-    //                 this.selectedTileTwo = clickedTileID;
-    //                 this.checkMatch(this.selectedTileOne, this.selectedTileTwo); 
-    //             } else {    
-    //                 selectedTile.selected = true;
-    //                 this.selectedTileOne = clickedTileID;
-    //             }
-    //             view.flipTile(clickedTileID);
-    //         }
-    //     } else {
-    //         view.displayMessage("No tile here. :)")  
-    //     }
-    // },
-
-    // unselectAll: function() {
-    //     for (tile of this.gameSet) {
-    //         tile.selected = false;
-    //     }
-    //     this.selectedTileOne = null;
-    //     this.selectedTileTwo = null;
-    // },
-
-    // checkMatch: function(selectedTileOne, selectedTileTwo) {
-    //     handlers.disableClick();
-    //     if (this.gameSet[selectedTileOne].pairID === this.gameSet[selectedTileTwo].pairID) {
-    //         this.gameSet[selectedTileOne].completed === true;
-    //         this.gameSet[selectedTileOne].completed === true;
-    //         view.displaySuccessMessage();  
-    //         view.removeMatchedTiles();     // to be defined
-    //         this.unselectAll();  
-    //     } else {
-    //         view.displayFailureMessage(); 
-    //         view.unflipTiles(); 
-    //         this.unselectAll();
-    //     }
-    //     handlers.clickExpect();
-    // }    
+    } 
 }
 
 
