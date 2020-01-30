@@ -25,10 +25,10 @@ function levelSelect(selection) {
 
 //Create gameBoard object to handle game tile management 
 var gameBoard = {
-    
+
     gameSet: [],
-    
-    generateBoard: function(difficultyLevel) {
+
+    generateBoard: function (difficultyLevel) {
         var difficultyLevel = localStorage.getItem("difficultyLevel");
         let shuffledSet = shuffle(tileSets[difficultyLevel]);
         let tilePair;
@@ -38,24 +38,26 @@ var gameBoard = {
             } else {
                 tilePair = (tileNumber + 1) / 2;
             }
-            this.gameSet.push ({
+            this.gameSet.push({
                 position: shuffledSet.indexOf(tileNumber),
                 pairID: tilePair,
             });
         }
         view.displayBoard(this.gameSet);
-        view.displayMessage("Good luck!");     
+        view.displayMessage("Good luck!");
         handlers.clickExpect();
         //handlers.startClock();   // startClock function to be completed
-    } 
+    }
 }
 
 
 var handlers = {
-    // clickExpect function set up based on a video by Watch and Code
-    // and a post on Stack Overflow
-    clickExpect: function() {
-        $("#gameArea").children().not(".completed").on("click", function(event) {
+    /** 
+     * clickExpect function set up based on a video by Watch and Code
+     * and a post on Stack Overflow
+    **/
+    clickExpect: function () {
+        $("#gameArea").children().not(".completed").on("click", function (event) {
             let clicked = event.target;
             if (clicked.className.includes("tile")) {
                 let position = Number.parseInt(clicked.id);
@@ -64,14 +66,14 @@ var handlers = {
         });
     },
 
-    disableClick: function() {
-         $("#gameArea").children().not(".completed").off();
+    disableClick: function () {
+        $("#gameArea").children().not(".completed").off();
     }
 }
 
 var view = {
 
-    displayBoard: function(set) {
+    displayBoard: function (set) {
         let difficulty = localStorage.getItem("difficultyLevel")
         let gameArea = $("#gameArea");
         for (tile of set) {
@@ -82,7 +84,7 @@ var view = {
         }
     },
 
-    selectTile: function(position) {
+    selectTile: function (position) {
         $(`#${position}`).removeClass("faceDown");
         this.isPair();
     },
@@ -96,12 +98,12 @@ var view = {
         }
     },
 
-    unflipTiles: function(tileOne, tileTwo) {
+    unflipTiles: function (tileOne, tileTwo) {
         tileOne.classList.add("faceDown");
         tileTwo.classList.add("faceDown");
     },
 
-    checkMatch: function(selectedTiles) {
+    checkMatch: function (selectedTiles) {
         let tileOne = selectedTiles[0];
         let tileTwo = selectedTiles[1];
 
@@ -109,36 +111,46 @@ var view = {
             this.displayFailureMessage();
             setTimeout(function () {
                 view.unflipTiles(tileOne, tileTwo);
-            }, 1500); 
+            }, 1500);
+            setTimeout(function () {
+                handlers.clickExpect();
+            }, 1600);
         } else {
             this.displaySuccessMessage();
             setTimeout(function () {
                 view.removeMatchedTiles(tileOne, tileTwo);
-            }, 1500);  
+                view.checkBoardCleared();
+            }, 1500);
         }
-        setTimeout(function () {
-             handlers.clickExpect();
-        }, 1600);
+
     },
 
-    removeMatchedTiles: function(tileOne, tileTwo) {
+    removeMatchedTiles: function (tileOne, tileTwo) {
         tileOne.classList.add("faceDown", "completed");
         tileTwo.classList.add("faceDown", "completed");
     },
 
-    displayMessage: function(messageText) {
+    checkBoardCleared: function () {
+        if ($(".tile.completed").length === gameBoard.gameSet.length) {
+            displayMessage("Congratulations!!! Game completed!");
+        } else {
+            handlers.clickExpect();
+        }
+    },
+
+    displayMessage: function (messageText) {
         $("#messageArea").text(messageText);
     },
 
-    displaySuccessMessage: function() {
+    displaySuccessMessage: function () {
         var messages = ["Nice!", "Good job!", "Got it!", "Super!"];
-        let messageChoice = messages[Math.round(Math.random()*3)];
+        let messageChoice = messages[Math.round(Math.random() * 3)];
         this.displayMessage(messageChoice);
     },
 
-    displayFailureMessage: function() {
+    displayFailureMessage: function () {
         var messages = ["Close... but no. :)", "Nope. Try again.", "Almost... but not quite. :)"];
-        let messageChoice = messages[Math.round(Math.random()*2)];
+        let messageChoice = messages[Math.round(Math.random() * 2)];
         this.displayMessage(messageChoice);
     }
 }
