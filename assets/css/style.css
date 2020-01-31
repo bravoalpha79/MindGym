@@ -2,21 +2,13 @@ body {
     text-align: center;
 }
 
-#messageArea {
-    padding: 18px;
-    font-size: 36px;
+.container-md {
+    min-height: 90vh;
 }
 
-#gameArea {
-    background-color: darkgreen;
-    height: 80vh;
-    width: 50vw;
-    margin: 0 auto;
-    padding: 18px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
+#messageArea {
+    padding: 8px;
+    font-size: 24px;
 }
 
 .levelButton {
@@ -27,13 +19,47 @@ body {
     text-decoration: none;
 }
 
+#gameArea {
+    background-color: darkgreen;
+    min-height: 50vh;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 6px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    overflow: none;
+}
+
 .tile {
-    height: 16vh;
-    width: 16vh;
+    height: 13vw;
+    width: 13vw;
     display: inline-block;
-    margin: 12px;
+    margin: 6px;
     border: 1px solid black;
     border-radius: 8px;
+}
+
+@media screen and (min-width: 768px) {
+    .tile {
+        height: 10vw;
+        width: 10vw;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .tile {
+        margin: 12px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .tile {
+        height: 5.5vw;
+        width: 5.5vw;
+    }
 }
 
 
@@ -78,4 +104,16 @@ body {
 .completed {
     background: transparent;
     border: none;
+}
+
+#restartButton {
+    margin-top: 6px;
+    margin-bottom: 24px;
+}
+
+.footerBar {
+    background-color: lightgray;
+    height: 3vh;
+    font-size: 2vh;
+    text-align: center;
 }
