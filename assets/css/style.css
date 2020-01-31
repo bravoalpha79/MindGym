@@ -40,6 +40,11 @@ body {
     margin: 6px;
     border: 1px solid black;
     border-radius: 8px;
+    transition: transform .5s;
+}
+
+.tile:hover {
+    filter: brightness(110%);
 }
 
 @media screen and (min-width: 768px) {
@@ -60,6 +65,10 @@ body {
         height: 5.5vw;
         width: 5.5vw;
     }
+}
+
+@keyframes zoom {
+    from {height: 100}
 }
 
 
