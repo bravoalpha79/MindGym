@@ -1,148 +1,148 @@
 body {
-    text-align: center;
+  text-align: center;
 }
 
 .navbar {
-    min-height: 6vh;
+  min-height: 6vh;
 }
 
 .container, 
 .container-md {
-    min-height: 90vh;
+  min-height: 90vh;
 }
 
 .hero {
-    min-height: 400px;
-    border: 1px solid black;
+  min-height: 400px;
+  border: 1px solid black;
 }
 
 #messageArea {
-    margin: 12px;
-    padding: 8px;
-    font-size: 24px;
+  margin: 12px;
+  padding: 8px;
+  font-size: 24px;
 }
 
 .levelButton {
-    display: inline-block;
-    margin: 18px;
-    padding: 12px;
-    border: 1px solid blue;
-    text-decoration: none;
-    transition: transform .5s;
+  display: inline-block;
+  margin: 18px;
+  padding: 12px;
+  border: 1px solid blue;
+  text-decoration: none;
+  transition: transform .5s;
 }
 
 .levelButton:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 #gameArea {
-    background-color: darkgreen;
-    min-height: 50vh;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 6px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    overflow: none;
+  background-color: darkgreen;
+  min-height: 50vh;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 6px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  overflow: none;
 }
 
 .tile {
-    height: 13vw;
-    width: 13vw;
-    display: inline-block;
-    margin: 6px;
-    border: 1px solid black;
-    border-radius: 8px;
-    transition: transform .5s;
+  height: 13vw;
+  width: 13vw;
+  display: inline-block;
+  margin: 6px;
+  border: 1px solid black;
+  border-radius: 8px;
+  transition: transform .5s;
 }
 
 .tile:hover {
-    filter: brightness(110%);
+  filter: brightness(110%);
 }
 
 @media screen and (min-width: 768px) {
-    .tile {
-        height: 10vw;
-        width: 10vw;
-    }
+  .tile {
+    height: 10vw;
+    width: 10vw;
+  }
 }
 
 @media screen and (min-width: 992px) {
-    .tile {
-        margin: 12px;
-    }
+  .tile {
+    margin: 12px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
-    #gameArea {
-        max-width: 80%;
-    }
-    
-    .tile {
-        height: 5.5vw;
-        width: 5.5vw;
-    }
+  #gameArea {
+    max-width: 80%;
+  }
+  
+  .tile {
+    height: 5.5vw;
+    width: 5.5vw;
+  }
 }
 
 @keyframes zoom {
-    from {height: 100}
+  from {height: 100}
 }
 
 
 /* Beginner tile set */
 .beginnerPair1 {
-    background-color: blueviolet;
+  background-color: blueviolet;
 }
 
 .beginnerPair2 {
-    background-color: plum;
+  background-color: plum;
 }
 
 .beginnerPair3 {
-    background-color: cornflowerblue;
+  background-color: cornflowerblue;
 }
 
 .beginnerPair4 {
-    background-color: chartreuse;
+  background-color: chartreuse;
 }
 
 .beginnerPair5 {
-    background-color: beige;
+  background-color: beige;
 }
 
 .beginnerPair6 {
-    background-color: coral;
+  background-color: coral;
 }
 
 .beginnerPair7 {
-    background-color: darkred;
+  background-color: darkred;
 }
 
 .beginnerPair8 {
-    background-color: teal;
+  background-color: teal;
 }
 
 
 .faceDown {
-    background: url("../img/background.jpg") center center no-repeat;
+  background: url("../img/background.jpg") center center no-repeat;
 }
 
 .completed {
-    background: transparent;
-    border: none;
+  background: transparent;
+  border: none;
 }
 
 #restartButton {
-    margin-top: 6px;
-    margin-bottom: 24px;
+  margin-top: 6px;
+  margin-bottom: 24px;
 }
 
 .footerBar {
-    background-color: lightgray;
-    height: 4vh;
-    font-size: 2vh;
-    text-align: center;
+  background-color: lightgray;
+  height: 4vh;
+  font-size: 2vh;
+  text-align: center;
 }
