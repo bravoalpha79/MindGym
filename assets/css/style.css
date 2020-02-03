@@ -1,9 +1,15 @@
 body {
   text-align: center;
+  font-family: "Kalam", sans-serif;
+  font-size: 24px;
 }
 
 .navbar {
   min-height: 6vh;
+}
+
+.navbar-brand img {
+  height: 48px;
 }
 
 .container, 
@@ -17,10 +23,9 @@ body {
 }
 
 #messageArea {
-  min-height: 100%;
   margin: 12px;
   padding: 8px;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
 }
 
@@ -75,10 +80,6 @@ body {
   margin-bottom: 16px;
 }
 
-.levelButtonBack:hover {
-  filter: brightness(80%);
-}
-
 #gameArea {
   background-color: darkgreen;
   min-height: 50vh;
@@ -129,36 +130,95 @@ body {
 
 /* Beginner tile set */
 .beginnerPair1 {
+  background-color: dimgrey;
+  background: url("../img/beginner/beginnerPair1.png") center center;
+}
+.beginnerPair2 {
+  background-color: dimgrey;
+  background: url("../img/beginner/beginnerPair2.png") center center;
+}
+.beginnerPair3 {
+  background-color: dimgrey;
+  background: url("../img/beginner/beginnerPair3.png") center center;
+}
+.beginnerPair4 {
+  background-color: dimgrey;
+  background: url("../img/beginner/beginnerPair4.png") center center;
+}
+.beginnerPair5 {
+  background-color: dimgrey;
+  background: url("../img/beginner/beginnerPair5.png") center center;
+}
+.beginnerPair6 {
+  background-color: dimgrey;
+  background: url("../img/beginner/beginnerPair6.png") center center;
+}
+.beginnerPair7 {
+  background-color: dimgrey;
+  background: url("../img/beginner/beginnerPair7.png") center center;
+}
+.beginnerPair8 {
+  background-color: dimgrey;
+  background: url("../img/beginner/beginnerPair8.png") center center;
+}
+
+
+
+/* Intermediate tile set */
+.intermediatePair1 {
   background-color: blueviolet;
 }
 
-.beginnerPair2 {
+.intermediatePair2 {
   background-color: plum;
 }
 
-.beginnerPair3 {
+.intermediatePair3 {
   background-color: cornflowerblue;
 }
 
-.beginnerPair4 {
+.intermediatePair4 {
   background-color: chartreuse;
 }
 
-.beginnerPair5 {
+.intermediatePair5 {
   background-color: beige;
 }
 
-.beginnerPair6 {
+.intermediatePair6 {
   background-color: coral;
 }
 
-.beginnerPair7 {
+.intermediatePair7 {
   background-color: darkred;
 }
 
-.beginnerPair8 {
+.intermediatePair8 {
   background-color: teal;
 }
+
+.intermediatePair9 {
+  background-color: navy;
+}
+
+.intermediatePair10 {
+  background-color: lightgray;
+}
+
+.intermediatePair11 {
+  background-color: grey;
+}
+
+.intermediatePair12 {
+  background-color: gold;
+}
+
+
+
+
+
+
+
 
 
 .faceDown {
