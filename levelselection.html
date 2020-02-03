@@ -2,74 +2,95 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>MindGym - select difficulty level</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-  <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>MindGym - select difficulty level</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+	<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 </head>
 
 <body>
-  <!-- Navbar code copied from Bootstrap documentation and adapted -->
-  <nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	<!-- Navbar code copied from Bootstrap documentation and adapted -->
+	<nav class="navbar navbar-expand-sm navbar-light bg-light">
+		<a class="navbar-brand" href="index.html">Navbar</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="levelselection.html">Play<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="modal" data-target="#instructionsModal">Instructions</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!-- /.Navbar -->
-  <div class="container">
-    <div>
-      <h2>Select difficulty level</h2>
-    </div>
-    <div class="levelButton" onclick="levelSelect('beginner')">
-      <h4>Beginner</h4>
-      <img src="" />
-      <h5>8 pairs</h5>
-    </div>
-    <a class="levelButton" onclick="levelSelect('intermediate')">
-      <h4>Intermediate</h4>
-      <img src="" />
-      <h5>12 pairs</h5>
-    </a>
-    <a class="levelButton" onclick="levelSelect('expert')">
-      <h4>Expert</h4>
-      <img src="" />
-      <h5>18 pairs</h5>
-    </a>
-  </div>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home </a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="levelselection.html">Play<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#" data-toggle="modal" data-target="#instructionsModal">Instructions</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- /.Navbar -->
+	<div class="container">
+		<div>
+			<h2>Select difficulty level</h2>
+		</div>
+		<div class="levelButton">
+			<div class="levelButtonContainer">
+				<div class="levelButtonFront">
+                    <img src="" />
+				</div>
+				<div class="levelButtonBack" onclick="levelSelect('beginner')">
+					<h4>Beginner</h4>
+					<img src="" />
+					<h5>8 pairs</h5>
+				</div>
+			</div>
+		</div>
+		<div class="levelButton">
+			<div class="levelButtonContainer">
+				<div class="levelButtonFront">
+                    <img src="" />
+				</div>
+				<div class="levelButtonBack" onclick="levelSelect('intermediate')">
+					<h4>Intermediate</h4>
+					<img src="" />
+					<h5>12 pairs</h5>
+				</div>
+			</div>
+		</div>
+		<div class="levelButton">
+			<div class="levelButtonContainer">
+				<div class="levelButtonFront">
+                    <img src="" />
+				</div>
+				<div class="levelButtonBack" onclick="levelSelect('expert')">
+					<h4>Expert</h4>
+					<img src="" />
+					<h5>18 pairs</h5>
+				</div>
+			</div>
+		</div>
+	</div>
 
-  <footer>
-    <div class="footerBar">
-      Copyright 2020 by <a href="https://github.com/bravoalpha79">bravoalpha79</a> for educational purposes.
-    </div>
-  </footer>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-  </script>
-  <script src="https://kit.fontawesome.com/0467a2a6b6.js" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="assets/js/script.js"></script>
+	<footer>
+		<div class="footerBar">
+			Copyright 2020 by <a href="https://github.com/bravoalpha79">bravoalpha79</a> for educational purposes.
+		</div>
+	</footer>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+	</script>
+	<script src="https://kit.fontawesome.com/0467a2a6b6.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 
 </html>

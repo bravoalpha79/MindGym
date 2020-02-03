@@ -22,18 +22,49 @@ body {
   font-size: 24px;
 }
 
+/** Level selection buttons.
+ *  Flip animation code obtained from W3Schools and adapted.
+ **/
 .levelButton {
-  display: inline-block;
-  margin: 18px;
-  padding: 12px;
-  border: 1px solid blue;
-  text-decoration: none;
-  transition: transform .5s;
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    background-color: transparent;
+    margin: 16px;
 }
 
-.levelButton:hover {
-  transform: scale(1.2);
+.levelButtonContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
+
+.levelButton:hover .levelButtonContainer {
+  transform: rotateY(180deg);
+}
+
+.levelButtonFront, 
+.levelButtonBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px black;
+}
+
+.levelButtonFront {
+  background-color: tan;
+}
+
+.levelButtonBack {
+  border: 1px solid black;
+  transform: rotateY(180deg);
+}
+
 
 #gameArea {
   background-color: darkgreen;
