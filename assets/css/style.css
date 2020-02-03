@@ -17,9 +17,11 @@ body {
 }
 
 #messageArea {
+  min-height: 100%;
   margin: 12px;
   padding: 8px;
   font-size: 24px;
+  font-weight: bold;
 }
 
 /** Level selection buttons.
@@ -114,7 +116,8 @@ body {
 
 @media screen and (min-width: 1200px) {
   #gameArea {
-  min-height: 60vh;
+  flex-direction: column wrap;
+  max-height: 75vh;
   }
 
   .tile {

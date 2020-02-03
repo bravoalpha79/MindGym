@@ -167,20 +167,23 @@ var view = {
   tileTwo.classList.add("faceDown", "completed");
   },
 
-  displayMessage: function (messageText) {
-  $("#messageArea").text(messageText);
+  displayMessage: function (messageText, color = "blue") {
+  $("#messageArea").text(messageText).css("color", color);
+  setTimeout(function() {
+      $("#messageArea").text("\xA0");
+  }, 1500);
   },
 
   displaySuccessMessage: function () {
   var messages = ["Nice!", "Good job!", "Got it!", "Super!"];
-  let messageChoice = messages[Math.round(Math.random() * 3)];
-  this.displayMessage(messageChoice);
+  let messageChoice = messages[Math.round(Math.random() * 3)];  
+  this.displayMessage(messageChoice, "green")
   },
 
   displayFailureMessage: function () {
   var messages = ["Close... but no. :)", "Nope. Try again.", "Almost... but not quite. :)"];
   let messageChoice = messages[Math.round(Math.random() * 2)];
-  this.displayMessage(messageChoice);
+  this.displayMessage(messageChoice, "orange");
   },
 
   displayPlayAgainButton: function () {
