@@ -5,39 +5,52 @@ body {
 }
 
 .navbar {
-  min-height: 6vh;
+  min-height: 5vh;
 }
 
 .navbar-brand img {
-  height: 48px;
+  height: 38px;
 }
 
-.container, 
-.container-md {
-  min-height: 90vh;
+.homeContainer,
+.levelContainer, 
+.gameContainer {
+  min-height: 88vh;
+}
+
+.levelContainer, 
+.gameContainer {
+  background: url("../img/gym.jpg") no-repeat center center fixed;
+  background-size: contain;
+}
+
+.homeContainer {
+  background: url("../img/home.jpg") no-repeat center center fixed;
+  background-size: contain;
 }
 
 .hero {
   min-height: 400px;
-  border: 1px solid black;
 }
 
 #messageArea {
-  margin: 12px;
-  padding: 8px;
-  font-size: 32px;
+  min-height: 15vh;
+  margin: 0 12px 12px;
+  padding: 24px 8px 8px;
+  font-size: 4vh;
   font-weight: bold;
 }
 
-/** Level selection buttons.
- *  Flip animation code obtained from W3Schools and adapted.
+/** 
+ * Level selection buttons.
+ * Flip animation code obtained from W3Schools and adapted.
  **/
 .levelButton {
   display: inline-block;
   height: 200px;
   width: 200px;
   background-color: transparent;
-  margin: 16px 32px;
+  margin: 16px; 
 }
 
 .levelButtonContainer {
@@ -60,11 +73,12 @@ body {
   height: 100%;
   backface-visibility: hidden;
   border-radius: 5px;
-  box-shadow: 3px 3px 3px burlywood;
+  box-shadow: 4px 4px 4px navy;
 }
 
 .levelButtonFront {
-  background-color: tan;
+  padding: 12px;
+  background-color: white;
 }
 
 .levelButtonBack {
@@ -80,8 +94,13 @@ body {
   margin-bottom: 16px;
 }
 
+.levelWrapper {
+    margin-top: 20vh;
+}
+
 #gameArea {
-  background-color: darkgreen;
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 5px;
   min-height: 50vh;
   max-width: 100%;
   margin: 0 auto;
@@ -130,35 +149,34 @@ body {
 
 /* Beginner tile set */
 .beginnerPair1 {
-  background-color: dimgrey;
   background: url("../img/beginner/beginnerPair1.png") center center;
 }
+
 .beginnerPair2 {
-  background-color: dimgrey;
   background: url("../img/beginner/beginnerPair2.png") center center;
 }
+
 .beginnerPair3 {
-  background-color: dimgrey;
   background: url("../img/beginner/beginnerPair3.png") center center;
 }
+
 .beginnerPair4 {
-  background-color: dimgrey;
   background: url("../img/beginner/beginnerPair4.png") center center;
 }
+
 .beginnerPair5 {
-  background-color: dimgrey;
   background: url("../img/beginner/beginnerPair5.png") center center;
 }
+
 .beginnerPair6 {
-  background-color: dimgrey;
   background: url("../img/beginner/beginnerPair6.png") center center;
 }
+
 .beginnerPair7 {
-  background-color: dimgrey;
   background: url("../img/beginner/beginnerPair7.png") center center;
 }
+
 .beginnerPair8 {
-  background-color: dimgrey;
   background: url("../img/beginner/beginnerPair8.png") center center;
 }
 
@@ -202,7 +220,7 @@ body {
 }
 
 .intermediatePair10 {
-  background-color: lightgray;
+  background-color: turquoise;
 }
 
 .intermediatePair11 {
@@ -210,10 +228,82 @@ body {
 }
 
 .intermediatePair12 {
-  background-color: gold;
+  background-color: yellow;
 }
 
+/* Expert tile set */
 
+.expertPair1 {
+  background: url("../img/expert/expertPair1.png") center center;
+}
+
+.expertPair2 {
+  background: url("../img/expert/expertPair2.png") center center;
+}
+
+.expertPair3 {
+  background: url("../img/expert/expertPair3.png") center center;
+}
+
+.expertPair4 {
+  background: url("../img/expert/expertPair4.png") center center;
+}
+
+.expertPair5 {
+  background: url("../img/expert/expertPair5.png") center center;
+}
+
+.expertPair6 {
+  background: url("../img/expert/expertPair6.png") center center;
+}
+
+.expertPair7 {
+  background: url("../img/expert/expertPair7.png") center center;
+}
+
+.expertPair8 {
+  background: url("../img/expert/expertPair8.png") center center;
+}
+
+.expertPair9 {
+  background: url("../img/expert/expertPair9.png") center center;
+}
+
+.expertPair10 {
+  background: url("../img/expert/expertPair10.png") center center;
+}
+
+.expertPair11 {
+  background: url("../img/expert/expertPair11.png") center center;
+}
+
+.expertPair12 {
+  background: url("../img/expert/expertPair12.png") center center;
+}
+
+.expertPair13 {
+  background: url("../img/expert/expertPair13.png") center center;
+}
+
+.expertPair14 {
+  background: url("../img/expert/expertPair14.png") center center;
+}
+
+.expertPair15 {
+  background: url("../img/expert/expertPair15.png") center center;
+}
+
+.expertPair16 {
+  background: url("../img/expert/expertPair16.png") center center;
+}
+
+.expertPair17 {
+  background: url("../img/expert/expertPair17.png") center center;
+}
+
+.expertPair18 {
+  background: url("../img/expert/expertPair18.png") center center;
+}
 
 
 
@@ -239,5 +329,7 @@ body {
   background-color: lightgray;
   height: 4vh;
   font-size: 2vh;
+  font-family: "Helvetica", sans-serif;
   text-align: center;
+  padding: 0.5vh;
 }
