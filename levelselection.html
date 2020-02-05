@@ -15,7 +15,7 @@
 <body>
 	<!-- Navbar code copied from Bootstrap documentation and adapted -->
 	<nav class="navbar navbar-expand-sm navbar-light bg-light">
-		<a class="navbar-brand" href="index.html"><img src="assets/img/favicon-32x32.png" /></a>
+		<a class="navbar-brand" href="index.html"><img src="assets/img/favicon-32x32.png" alt="mindgym icon"/></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,11 +43,11 @@
                 <div class="levelButton">
                     <div class="levelButtonContainer">
                         <div class="levelButtonFront">
-                            <img src="assets/img/beginner.jpg" height="180px" width="150px" />
+                            <img src="assets/img/beginner.jpg" height="180" width="150" alt="toddler"/>
                         </div>
                         <div class="levelButtonBack" onclick="levelSelect('beginner')">
                             <h4>Beginner</h4>
-                            <img src="assets/img/beginner/beginnerPair1.png" height="80px" width="80px"/>
+                            <img src="assets/img/beginner/beginnerPair1.png" height="80" width="80" alt="beginner tile"/>
                             <h5>8 pairs</h5>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                 <div class="levelButton">
                     <div class="levelButtonContainer">
                         <div class="levelButtonFront">
-                            <img src="assets/img/intermediate.jpg" height="180px" width="120px" />
+                            <img src="assets/img/intermediate.jpg" height="180" width="120" alt="boy"/>
                         </div>
                         <div class="levelButtonBack" onclick="levelSelect('intermediate')">
                             <h4>Intermediate</h4>
@@ -68,11 +68,11 @@
                 <div class="levelButton">
                     <div class="levelButtonContainer">
                         <div class="levelButtonFront">
-                            <img src="assets/img/expert.jpg" height="180px" width="150px" />
+                            <img src="assets/img/expert.jpg" height="180" width="150" alt="super boy"/>
                         </div>
                         <div class="levelButtonBack" onclick="levelSelect('expert')">
                             <h4>Expert</h4>
-                            <img src="assets/img/expert/expertPair12.png" height="80px" width="80px"/>
+                            <img src="assets/img/expert/expertPair12.png" height="80" width="80" alt="expert tile"/>
                             <h5>18 pairs</h5>
                         </div>
                     </div>
@@ -80,7 +80,49 @@
             </div>
         </div>
 	</div>
-
+    <!-- Modal code copied from Bootstrap documentation and adapted -->
+    <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="instructionsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="instructionsModalLabel">How to Play</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                </div>
+                <div class="modal-body">
+                    <ol>
+                        <li>
+                        Click "Play".
+                        </li>
+                        <strong>
+                        <li>
+                        Select a difficulty level to start the game. 
+                        </li>
+                        <li>
+                        Select two tiles. <br />
+                        If the two tiles match, they will be removed from the board. <br />
+                        If they don't, they will be flipped back. <br />
+                        Rinse and repeat until the board is clear. <br />
+                        When the board is clear, the game is completed. <br />
+                        </li>
+                        <li>
+                        During a game, you can click "Restart" at any time to restart the game with the same difficulty level.
+                        </li>
+                        <li>
+                        After a game is completed, clicking "Play again" will take you back to difficulty level selection.
+                        </li>
+                        </strong>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.Modal -->        
 	<footer>
 		<div class="footerBar">
 			&copy; 2020 by <a href="https://github.com/bravoalpha79">bravoalpha79</a> for educational purposes.
@@ -96,7 +138,7 @@
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 	</script>
 	<script src="https://kit.fontawesome.com/0467a2a6b6.js" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="assets/js/script.js"></script>
+	<script src="assets/js/script.js"></script>
 </body>
 
 </html>

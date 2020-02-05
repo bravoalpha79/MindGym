@@ -16,6 +16,10 @@ h1, h2 {
   height: 38px;
 }
 
+.navbar li {
+  margin-left: 24px;
+}
+
 .container-fluid, 
 .container-md {
     background-color: blanchedalmond;
@@ -448,6 +452,13 @@ h1, h2 {
 #restartButton {
   margin: 18px 0px;
   font-size: 18px;
+}
+
+
+.modal-body li {
+  text-align: left;
+  margin-bottom: 6px;
+  font-size: 20px;
 }
 
 .footerBar {

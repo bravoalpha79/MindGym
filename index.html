@@ -16,7 +16,7 @@
 <body>
   <!-- Navbar code copied from Bootstrap documentation and adapted -->
   <nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <a class="navbar-brand" href="index.html"><img src="assets/img/favicon-32x32.png" /></a>
+    <a class="navbar-brand" href="index.html"><img src="assets/img/favicon-32x32.png" alt="mindgym icon"/></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -60,7 +60,27 @@
                     </button>
         </div>
         <div class="modal-body">
-          Instructions text here.
+          <ol>
+            <li>
+              Click "Play".
+            </li>
+            <li>
+              Select a difficulty level to start the game. 
+            </li>
+            <li>
+              Select two tiles. <br />
+              If the two tiles match, they will be removed from the board. <br />
+              If they don't, they will be flipped back. <br />
+              Rinse and repeat until the board is clear. <br />
+              When the board is clear, the game is completed. <br />
+            </li>
+            <li>
+              During a game, you can click "Restart" at any time to restart the game with the same difficulty level.
+            </li>
+            <li>
+              After a game is completed, clicking "Play again" will take you back to difficulty level selection.
+            </li>
+           </ol>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -85,7 +105,7 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
   <script src="https://kit.fontawesome.com/0467a2a6b6.js" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="assets/js/script.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>
