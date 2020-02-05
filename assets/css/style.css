@@ -61,6 +61,10 @@ h1, h2 {
 
 .messageArea {}
 
+.avatarArea {
+  display: none;
+}
+
 #messageAreaTop {
   height: 13vh;
   margin-bottom: 12px;
@@ -72,9 +76,15 @@ h1, h2 {
   align-items: flex-end;
 }
 
+#messageAreaSide {
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 1px; 
+}
+
 .avatarImage {
     position: absolute;
-    top: 25%;
+    top: 15%;
     height: 25vw;
     width: 13vw;
     background: url("../img/avatar.jpg") center center no-repeat;
@@ -85,8 +95,8 @@ h1, h2 {
 /* Speech bubble code obtained from https://leaverou.github.io/bubbly/ and adapted */
 .bubbleWrapper {
     position: absolute;
-    top: 20%;
-    left: 2.5%;
+    top: 5%;
+    left: 2%;
 }
 
 .textBubble {
@@ -94,13 +104,18 @@ h1, h2 {
 	background: #ffffff;
 	border-radius: .4em;
     padding: 12px;
+    max-width: 350px;
+    min-height: 100px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
 }
 
 .textBubble:after {
 	content: '';
 	position: absolute;
 	bottom: 0;
-	left: 50%;
+	left: 30%;
 	width: 0;
 	height: 0;
 	border: 20px solid transparent;
@@ -217,6 +232,10 @@ h1, h2 {
 @media screen and (min-width: 1200px) {
   #messageAreaTop {
     display: none;
+  }
+
+  .avatarArea {
+    display: initial;
   }
 
   #gameArea {

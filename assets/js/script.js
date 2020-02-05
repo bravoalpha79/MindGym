@@ -142,52 +142,54 @@ var handlers = {
 var view = {
 
   displayBoard: function (set) {
-  let difficulty = localStorage.getItem("difficultyLevel")
-  let gameArea = $("#gameArea");
-  for (tile of set) {
-    let tileDiv = document.createElement("div");
-    tileDiv.id = `${tile.position}`;
-    tileDiv.className = `tile ${difficulty}Pair${tile.pairID} faceDown`
-    gameArea.append(tileDiv);
-  }
+    let difficulty = localStorage.getItem("difficultyLevel")
+    let gameArea = $("#gameArea");
+    for (tile of set) {
+        let tileDiv = document.createElement("div");
+        tileDiv.id = `${tile.position}`;
+        tileDiv.className = `tile ${difficulty}Pair${tile.pairID} faceDown`
+        gameArea.append(tileDiv);
+    }
   },
 
   selectTile: function (position) {
-  $(`#${position}`).removeClass("faceDown");
-  gameBoard.isPair();
+    $(`#${position}`).removeClass("faceDown");
+    gameBoard.isPair();
   },
 
   unflipTiles: function (tileOne, tileTwo) {
-  tileOne.classList.add("faceDown");
-  tileTwo.classList.add("faceDown");
+    tileOne.classList.add("faceDown");
+    tileTwo.classList.add("faceDown");
   },
 
   removeMatchedTiles: function (tileOne, tileTwo) {
-  tileOne.classList.add("faceDown", "completed");
-  tileTwo.classList.add("faceDown", "completed");
+    tileOne.classList.add("faceDown", "completed");
+    tileTwo.classList.add("faceDown", "completed");
   },
 
   displayMessage: function (messageText, color = "blue") {
-  $(".messageArea").text(messageText).css("color", color);
-  setTimeout(function() {
-      $(".messageArea").text("\xA0");
-  }, 1500);
+    $(".bubbleWrapper").css("display", "initial");
+    $(".messageArea").text(messageText).css("color", color);
+    setTimeout(function() {
+        $(".messageArea").text("\xA0");
+        $(".bubbleWrapper").css("display", "none");
+    }, 1500);
   },
 
   displaySuccessMessage: function () {
-  var messages = ["Nice!", "Good job!", "Got it!", "Super!"];
-  let messageChoice = messages[Math.round(Math.random() * 3)];  
-  this.displayMessage(messageChoice, "green")
+    var messages = ["Nice!!!", "Good job!!!", "Got it!!!", "Super!!!"];
+    let messageChoice = messages[Math.round(Math.random() * 3)];  
+    this.displayMessage(messageChoice, "green")
   },
 
   displayFailureMessage: function () {
-  var messages = ["Close... but no. :)", "Nope. Try again.", "Almost... but not quite. :)"];
-  let messageChoice = messages[Math.round(Math.random() * 2)];
-  this.displayMessage(messageChoice, "orange");
+    var messages = ["Close... but no. :)", "Nope. Try again.", "Almost... but not quite. :)"];
+    let messageChoice = messages[Math.round(Math.random() * 2)];
+    this.displayMessage(messageChoice, "orange");
   },
 
   displayPlayAgainButton: function () {
-  $("#restartForm").attr("action", "levelselection.html");
-  $("#restartButton").removeAttr("onclick").attr("type", "submit").text("Play again?");
+    $("#restartForm").attr("action", "levelselection.html");
+    $("#restartButton").removeAttr("onclick").attr("type", "submit").text("Play again?");
   }
 }
