@@ -24,7 +24,7 @@ h1, h2 {
 .homeWrapper,
 .levelWrapper, 
 .gameWrapper {
-  min-height: 88vh;
+  min-height: 91vh;
   margin: 0 auto;
   padding-top: 36px;
 }
@@ -51,12 +51,24 @@ h1, h2 {
     margin: 0 auto;
 }
 
-#messageArea {
-  min-height: 15vh;
-  margin: 0 12px 12px;
-  padding: 24px 8px 8px;
-  font-size: 4vh;
+.levelWrapper {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.messageArea {}
+
+#messageAreaTop {
+  height: 13vh;
+  margin-bottom: 12px;
+  font-size: 3vh;
   font-weight: bold;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 
@@ -373,16 +385,15 @@ h1, h2 {
 
 
 #restartButton {
-  margin-top: 6px;
-  margin-bottom: 24px;
+  margin: 18px 0px;
   font-size: 24px;
 }
 
 .footerBar {
   background-color: lightgray;
-  height: 4vh;
+  height: 3vh;
   font-size: 1.5vh;
   font-family: "Helvetica", sans-serif;
   text-align: center;
-  padding: 1.25vh;
+  padding: 1vh;
 }

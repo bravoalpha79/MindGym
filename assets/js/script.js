@@ -168,9 +168,9 @@ var view = {
   },
 
   displayMessage: function (messageText, color = "blue") {
-  $("#messageArea").text(messageText).css("color", color);
+  $(".messageArea").text(messageText).css("color", color);
   setTimeout(function() {
-      $("#messageArea").text("\xA0");
+      $(".messageArea").text("\xA0");
   }, 1500);
   },
 
