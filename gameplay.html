@@ -34,16 +34,18 @@
     </div>
   </nav>
   <!-- /.Navbar -->
-    <div class="container-md gameContainer">
-        <div class="playArea" id="messageArea">
-            &nbsp;
-        </div>
-        <div class="playArea" id="gameArea">
-        </div>
-        <div class="playArea" id="restartArea">
-            <form id="restartForm">
-                <button id="restartButton" onclick="gameBoard.restartGame()">Restart</button>
-            </form>
+    <div class="container-fluid">
+        <div class="gameWrapper">
+            <div class="playArea" id="messageArea">
+                &nbsp;
+            </div>
+            <div class="playArea" id="gameArea">
+            </div>
+            <div class="playArea" id="restartArea">
+                <form id="restartForm">
+                    <button class="btn btn-large btn-primary" id="restartButton" onclick="gameBoard.restartGame()">Restart</button>
+                </form>
+            </div>
         </div>    
     </div>
 

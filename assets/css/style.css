@@ -4,6 +4,10 @@ body {
   font-size: 24px;
 }
 
+h1, h2 {
+  font-weight: bold;
+}
+
 .navbar {
   min-height: 5vh;
 }
@@ -12,25 +16,39 @@ body {
   height: 38px;
 }
 
-.homeContainer,
-.levelContainer, 
-.gameContainer {
-  min-height: 88vh;
+.container-fluid, 
+.container-md {
+    background-color: blanchedalmond;
 }
 
-.levelContainer, 
-.gameContainer {
+.homeWrapper,
+.levelWrapper, 
+.gameWrapper {
+  min-height: 88vh;
+  margin: 0 auto;
+  padding-top: 36px;
+}
+
+.levelWrapper, 
+.gameWrapper {
   background: url("../img/gym.jpg") no-repeat center center fixed;
   background-size: contain;
 }
 
-.homeContainer {
+.homeWrapper {
   background: url("../img/home.jpg") no-repeat center center fixed;
   background-size: contain;
 }
 
-.hero {
-  min-height: 400px;
+.homeForm {
+    margin-top: 45vh;
+}
+
+.homeForm button {
+    height: 48px;
+    width: 128px;
+    font-size: 24px;
+    margin: 0 auto;
 }
 
 #messageArea {
@@ -40,6 +58,8 @@ body {
   font-size: 4vh;
   font-weight: bold;
 }
+
+
 
 /** 
  * Level selection buttons.
@@ -94,8 +114,18 @@ body {
   margin-bottom: 16px;
 }
 
-.levelWrapper {
-    margin-top: 20vh;
+.levelButtonBack img,
+.levelButtonBack div {
+    margin: 0 auto 12px;
+    border: .5px solid black;
+    border-radius: 5px;
+}
+
+.levelButtonBack div {
+    height: 80px;
+    width: 80px;
+    background-color: blueviolet;
+    margin: 0 auto 12px;
 }
 
 #gameArea {
@@ -137,7 +167,8 @@ body {
 @media screen and (min-width: 1200px) {
   #gameArea {
   flex-direction: column wrap;
-  max-height: 75vh;
+  max-width: 65%;
+  padding: 18px;
   }
 
   .tile {
@@ -150,37 +181,43 @@ body {
 /* Beginner tile set */
 .beginnerPair1 {
   background: url("../img/beginner/beginnerPair1.png") center center;
+  background-size: contain;
 }
 
 .beginnerPair2 {
   background: url("../img/beginner/beginnerPair2.png") center center;
+  background-size: contain;
 }
 
 .beginnerPair3 {
   background: url("../img/beginner/beginnerPair3.png") center center;
+  background-size: contain;
 }
 
 .beginnerPair4 {
   background: url("../img/beginner/beginnerPair4.png") center center;
+  background-size: contain;
 }
 
 .beginnerPair5 {
   background: url("../img/beginner/beginnerPair5.png") center center;
+  background-size: contain;
 }
 
 .beginnerPair6 {
   background: url("../img/beginner/beginnerPair6.png") center center;
+  background-size: contain;
 }
 
 .beginnerPair7 {
   background: url("../img/beginner/beginnerPair7.png") center center;
+  background-size: contain;
 }
 
 .beginnerPair8 {
   background: url("../img/beginner/beginnerPair8.png") center center;
+  background-size: contain;
 }
-
-
 
 /* Intermediate tile set */
 .intermediatePair1 {
@@ -232,85 +269,98 @@ body {
 }
 
 /* Expert tile set */
-
 .expertPair1 {
   background: url("../img/expert/expertPair1.png") center center;
+  background-size: contain;
 }
 
 .expertPair2 {
   background: url("../img/expert/expertPair2.png") center center;
+  background-size: contain;
 }
 
 .expertPair3 {
   background: url("../img/expert/expertPair3.png") center center;
+  background-size: contain;
 }
 
 .expertPair4 {
   background: url("../img/expert/expertPair4.png") center center;
+  background-size: contain;
 }
 
 .expertPair5 {
   background: url("../img/expert/expertPair5.png") center center;
+  background-size: contain;
 }
 
 .expertPair6 {
   background: url("../img/expert/expertPair6.png") center center;
+  background-size: contain;
 }
 
 .expertPair7 {
   background: url("../img/expert/expertPair7.png") center center;
+  background-size: contain;
 }
 
 .expertPair8 {
   background: url("../img/expert/expertPair8.png") center center;
+  background-size: contain;
 }
 
 .expertPair9 {
   background: url("../img/expert/expertPair9.png") center center;
+  background-size: contain;
 }
 
 .expertPair10 {
   background: url("../img/expert/expertPair10.png") center center;
+  background-size: contain;
 }
 
 .expertPair11 {
   background: url("../img/expert/expertPair11.png") center center;
+  background-size: contain;
 }
 
 .expertPair12 {
   background: url("../img/expert/expertPair12.png") center center;
+  background-size: contain;
 }
 
 .expertPair13 {
   background: url("../img/expert/expertPair13.png") center center;
+  background-size: contain;
 }
 
 .expertPair14 {
   background: url("../img/expert/expertPair14.png") center center;
+  background-size: contain;
 }
 
 .expertPair15 {
   background: url("../img/expert/expertPair15.png") center center;
+  background-size: contain;
 }
 
 .expertPair16 {
   background: url("../img/expert/expertPair16.png") center center;
+  background-size: contain;
 }
 
 .expertPair17 {
   background: url("../img/expert/expertPair17.png") center center;
+  background-size: contain;
 }
 
 .expertPair18 {
   background: url("../img/expert/expertPair18.png") center center;
+  background-size: contain;
 }
 
 
-
-
-
-
-
+/* Special tile classes */
 .faceDown {
   background: url("../img/background.jpg") center center no-repeat;
 }
@@ -320,16 +370,19 @@ body {
   border: none;
 }
 
+
+
 #restartButton {
   margin-top: 6px;
   margin-bottom: 24px;
+  font-size: 24px;
 }
 
 .footerBar {
   background-color: lightgray;
   height: 4vh;
-  font-size: 2vh;
+  font-size: 1.5vh;
   font-family: "Helvetica", sans-serif;
   text-align: center;
-  padding: 0.5vh;
+  padding: 1.25vh;
 }
