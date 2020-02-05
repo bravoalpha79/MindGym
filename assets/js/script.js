@@ -3,6 +3,9 @@
  * In order to avoid manual creation of arrays with 16, 24 and 36 elements,
  * generation function created (adapted) from the one provided by Eventyret_mentor.
  **/
+function createSet(amount) {
+  return Array.from(Array(amount+1).keys()).slice(1);
+}
 
 var tileSets = {
   beginner: createSet(16),
@@ -10,20 +13,14 @@ var tileSets = {
   expert: createSet(36)
 };
 
-function createSet(amount) {
-  return Array.from(Array(amount+1).keys()).slice(1);
-}
-
-
 // Shuffle algorithm obtained from Stack Overflow
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * (i + 1));
-  [array[i], array[j]] = [array[j], array[i]];
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
 }
-
 
 /** 
  * Use localStorage to store input from levelselection.html before opening gameplay.html.
@@ -46,74 +43,73 @@ var gameBoard = {
    * The resulting array is the gameSet array of tile objects.  
    **/ 
   generateBoard: function () {
-  var difficultyLevel = localStorage.getItem("difficultyLevel");
-  let shuffledSet = shuffle(tileSets[difficultyLevel]);
-  let tilePair;
-  for (tileNumber of shuffledSet) {
-    if (tileNumber % 2 === 0) {
-    tilePair = tileNumber / 2;
-    } else {
-    tilePair = (tileNumber + 1) / 2;
+    var difficultyLevel = localStorage.getItem("difficultyLevel");
+    let shuffledSet = shuffle(tileSets[difficultyLevel]);
+    let tilePair;
+    for (var tileNumber of shuffledSet) {
+      if (tileNumber % 2 === 0) {
+        tilePair = tileNumber / 2;
+      } else {
+        tilePair = (tileNumber + 1) / 2;
+      }
+      this.gameSet.push({
+        position: shuffledSet.indexOf(tileNumber),
+        pairID: tilePair,
+      });
     }
-    this.gameSet.push({
-    position: shuffledSet.indexOf(tileNumber),
-    pairID: tilePair,
-    });
-  }
-  view.displayBoard(this.gameSet);
-  view.displayMessage("Good luck!");
-  handlers.clickExpect();
+    view.displayBoard(this.gameSet);
+    view.displayMessage("Good luck!");
+    handlers.clickExpect();
   }, 
 
   // check if two tiles have been selected
   isPair: function () {
-  var selectedTiles = $(".tile").not(".faceDown");
-
-  if (selectedTiles.length === 2) {
-    handlers.disableClick();
-    this.checkMatch(selectedTiles);
-  }
+    var selectedTiles = $(".tile").not(".faceDown");
+    if (selectedTiles.length === 2) {
+      handlers.disableClick();
+      this.checkMatch(selectedTiles);
+    }
   },
 
   // check if the two selected tiles match
   checkMatch: function (selectedTiles) {
-  let tileOne = selectedTiles[0];
-  let tileTwo = selectedTiles[1];
+    let tileOne = selectedTiles[0];
+    let tileTwo = selectedTiles[1];
 
-  if (tileOne.className !== tileTwo.className) {
-    view.displayFailureMessage();
-    setTimeout(function () {
-    view.unflipTiles(tileOne, tileTwo);
-    }, 1500);
-    setTimeout(function () {
-    handlers.clickExpect();
-    }, 1600);
-  } else {
-    view.displaySuccessMessage();
-    setTimeout(function () {
-    view.removeMatchedTiles(tileOne, tileTwo);
-    gameBoard.checkBoardCleared();
-    }, 1500);
-  }
+    if (tileOne.className !== tileTwo.className) {
+      view.displayFailureMessage();
+      setTimeout(function () {
+        view.unflipTiles(tileOne, tileTwo);
+      }, 1500);
+      setTimeout(function () {
+        handlers.clickExpect();
+      }, 1600);
+    } else {
+      view.displaySuccessMessage();
+      setTimeout(function () {
+        view.removeMatchedTiles(tileOne, tileTwo);
+        gameBoard.checkBoardCleared();
+      }, 1500);
+    }
   },
 
   // check if all tiles have been cleared from the board
   checkBoardCleared: function () {
-  if ($(".tile.completed").length === gameBoard.gameSet.length) {
-    view.displayMessage("Congratulations!!! Game completed!");
-    view.displayPlayAgainButton();
-  } else {
-    handlers.clickExpect();
-  }
+    if ($(".tile.completed").length === gameBoard.gameSet.length) {
+      view.displayMessage("Congratulations!!! Game completed!");
+      view.displayPlayAgainButton();
+    } else {
+      handlers.clickExpect();
+    }
   },
 
   restartGame: function () {
-  window.open("gameplay.html", "_self", false);
-  setTimeout(function () {
-    gameBoard.generateBoard();
-  }, 200);
+    window.open("gameplay.html", "_self", false);
+    setTimeout(function () {
+      gameBoard.generateBoard();
+    }, 200);
   }
-}
+};
 
 // Object for managing tile click enabling and disabling.
 var handlers = {
@@ -123,32 +119,32 @@ var handlers = {
  * and a post on Stack Overflow.
  **/
   clickExpect: function () {
-  $("#gameArea").children().not(".completed").on("click", function (event) {
-    let clicked = event.target;
-    if (clicked.className.includes("tile")) {
-    let position = Number.parseInt(clicked.id);
-    view.selectTile(position);
-    }
-  });
+    $("#gameArea").children().not(".completed").on("click", function (event) {
+      let clicked = event.target;
+      if (clicked.className.includes("tile")) {
+        let position = Number.parseInt(clicked.id);
+        view.selectTile(position);
+      }
+    });
   },
 
   disableClick: function () {
-  $("#gameArea").children().not(".completed").off();
+    $("#gameArea").children().not(".completed").off();
   }
-}
+};
 
 
 // Object for managing the display of tiles and game messages.
 var view = {
 
   displayBoard: function (set) {
-    let difficulty = localStorage.getItem("difficultyLevel")
+    let difficulty = localStorage.getItem("difficultyLevel");
     let gameArea = $("#gameArea");
-    for (tile of set) {
-        let tileDiv = document.createElement("div");
-        tileDiv.id = `${tile.position}`;
-        tileDiv.className = `tile ${difficulty}Pair${tile.pairID} faceDown`
-        gameArea.append(tileDiv);
+    for (var tile of set) {
+      let tileDiv = document.createElement("div");
+      tileDiv.id = `${tile.position}`;
+      tileDiv.className = `tile ${difficulty}Pair${tile.pairID} faceDown`;
+      gameArea.append(tileDiv);
     }
   },
 
@@ -179,7 +175,7 @@ var view = {
   displaySuccessMessage: function () {
     var messages = ["Nice!!!", "Good job!!!", "Got it!!!", "Super!!!"];
     let messageChoice = messages[Math.round(Math.random() * 3)];  
-    this.displayMessage(messageChoice, "green")
+    this.displayMessage(messageChoice, "green");
   },
 
   displayFailureMessage: function () {
@@ -192,4 +188,4 @@ var view = {
     $("#restartForm").attr("action", "levelselection.html");
     $("#restartButton").removeAttr("onclick").attr("type", "submit").text("Play again?");
   }
-}
+};
