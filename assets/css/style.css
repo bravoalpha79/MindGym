@@ -14,12 +14,17 @@ h1 {
   text-shadow: 2px 2px 2px salmon;
 }
 
-.navbar {
+nav {
+  background-color: purple;
   min-height: 5vh;
 }
 
 .navbar-brand img {
   height: 38px;
+}
+
+.navbar-brand img:hover {
+  filter: brightness(120%);
 }
 
 .navbar li {
@@ -28,7 +33,7 @@ h1 {
 
 .container-fluid, 
 .container-md {
-    background-color: blanchedalmond;
+  background-color: blanchedalmond;
 }
 
 .homeWrapper,
@@ -52,7 +57,7 @@ h1 {
 }
 
 .homeForm {
-    margin-top: 45vh;
+  margin-top: 45vh;
 }
 
 .homeForm button, 
@@ -61,10 +66,10 @@ h1 {
 }
 
 .homeForm button {
-    height: 48px;
-    width: 128px;
-    font-size: 24px;
-    margin: 0 auto;
+  height: 48px;
+  width: 128px;
+  font-size: 24px;
+  margin: 0 auto;
 }
 
 .homeForm i {
@@ -85,7 +90,7 @@ h1 {
 }
 
 #messageAreaTop {
-  height: 13vh;
+  height: 10vh;
   margin-bottom: 12px;
   font-size: 3vh;
   font-weight: bold;
@@ -100,51 +105,51 @@ h1 {
 }
 
 .avatarImage {
-    position: absolute;
-    top: 15%;
-    height: 25vw;
-    width: 13vw;
-    background: url("../img/avatar.jpg") no-repeat center center;
-    background-size: contain;
+  position: absolute;
+  top: 15%;
+  height: 30vw;
+  width: 15vw;
+  background: url("../img/avatar.png") no-repeat center center;
+  background-size: contain;
 }
 
 
 /* Speech bubble code obtained from https://leaverou.github.io/bubbly/ and adapted */
 .bubbleWrapper {
-    position: absolute;
-    top: 5%;
-    left: 2%;
+  position: absolute;
+  top: 15%;
+  left: 2%;
 }
 
 .textBubble {
   position: relative;
   background: #ffffff;
   border-radius: .4em;
-    padding: 12px;
-    max-width: 300px;
-    min-height: 100px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    font-size: 32px;
+  padding: 12px;
+  max-width: 300px;
+  min-height: 100px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
   font-weight: bold;
   letter-spacing: 1px;
 }
 
 .textBubble:after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 30%;
-	width: 0;
-	height: 0;
-	border: 20px solid transparent;
-	border-top-color: #ffffff;
-	border-bottom: 0;
-	border-left: 0;
-	margin-left: -10px;
-	margin-bottom: -20px;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-top-color: #ffffff;
+  border-bottom: 0;
+  border-right: 0;
+  margin-left: -10px;
+  margin-bottom: -20px;
 }
 
 /** 
@@ -179,12 +184,11 @@ h1 {
   height: 100%;
   backface-visibility: hidden;
   border-radius: 5px;
-  box-shadow: 4px 4px 4px navy;
+  box-shadow: 4px 4px 4px saddlebrown;
 }
 
 .levelButtonFront {
-  padding: 12px;
-  background-color: white;
+  background-color: blanchedalmond;
 }
 
 .levelButtonBack {
@@ -202,16 +206,16 @@ h1 {
 
 .levelButtonBack img,
 .levelButtonBack div {
-    margin: 0 auto 12px;
-    border: .5px solid black;
-    border-radius: 5px;
+  margin: 0 auto 12px;
+  border: .5px solid black;
+  border-radius: 5px;
 }
 
 .levelButtonBack div {
-    height: 80px;
-    width: 80px;
-    background-color: blueviolet;
-    margin: 0 auto 12px;
+  height: 80px;
+  width: 80px;
+  background-color: blueviolet;
+  margin: 0 auto 12px;
 }
 
 #gameArea {
@@ -246,12 +250,33 @@ h1 {
 
 @media screen and (min-width: 768px) {
   .tile {
-  height: 12vw;
-  width: 12vw;
+    height: 11vw;
+    width: 11vw;
   }
 }
 
+@media screen and (min-width: 992px) {
+  .tile {
+    height: 9.5vw;
+    width: 9.5vw;
+  }
+}
+
+
 @media screen and (min-width: 1200px) {
+  #gameArea {
+    flex-direction: column wrap;
+    max-width: 65%;
+    padding: 24px;
+  }
+
+  .tile {
+    height: 7.5vw;
+    width: 7.5vw;
+  }
+}
+
+@media screen and (min-width: 1700px) {
   #messageAreaTop {
     display: none;
   }
@@ -264,15 +289,9 @@ h1 {
     display: initial;
   }
 
-  #gameArea {
-  flex-direction: column wrap;
-  max-width: 65%;
-  padding: 18px;
-  }
-
   .tile {
-  height: 6vw;
-  width: 6vw;
+    height: 6vw;
+    width: 6vw;
   }
 }
 
@@ -485,7 +504,7 @@ h1 {
 }
 
 .footerBar {
-  background-color: lightgray;
+  background-color: #b3ff00;
   height: 3vh;
   font-size: 1.5vh;
   font-family: "Helvetica", sans-serif;
