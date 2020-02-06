@@ -6,6 +6,12 @@ body {
 
 h1, h2 {
   font-weight: bold;
+  color: purple;
+}
+
+h1 {
+  font-size: 54px;
+  text-shadow: 2px 2px 2px salmon;
 }
 
 .navbar {
@@ -49,11 +55,20 @@ h1, h2 {
     margin-top: 45vh;
 }
 
+.homeForm button, 
+#restartButton {
+  border: .5px solid white;
+}
+
 .homeForm button {
     height: 48px;
     width: 128px;
     font-size: 24px;
     margin: 0 auto;
+}
+
+.homeForm i {
+  color: lightskyblue
 }
 
 .levelWrapper {
@@ -81,9 +96,7 @@ h1, h2 {
 }
 
 #messageAreaSide {
-  font-size: 36px;
-  font-weight: bold;
-  letter-spacing: 1px; 
+  display: none;
 }
 
 .avatarImage {
@@ -91,7 +104,7 @@ h1, h2 {
     top: 15%;
     height: 25vw;
     width: 13vw;
-    background: url("../img/avatar.jpg") center center no-repeat;
+    background: url("../img/avatar.jpg") no-repeat center center;
     background-size: contain;
 }
 
@@ -104,15 +117,19 @@ h1, h2 {
 }
 
 .textBubble {
-	position: relative;
-	background: #ffffff;
-	border-radius: .4em;
+  position: relative;
+  background: #ffffff;
+  border-radius: .4em;
     padding: 12px;
-    max-width: 350px;
+    max-width: 300px;
     min-height: 100px;
     display: flex;
-    flex-flow: column;
+    flex-flow: row wrap;
     justify-content: center;
+    align-items: center;
+    font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .textBubble:after {
@@ -216,6 +233,7 @@ h1, h2 {
   height: 13vw;
   width: 13vw;
   display: inline-block;
+  padding: 0;
   margin: 6px;
   border: 1px solid black;
   border-radius: 8px;
@@ -238,6 +256,10 @@ h1, h2 {
     display: none;
   }
 
+  #messageAreaSide {
+    display: initial;
+  }
+
   .avatarArea {
     display: initial;
   }
@@ -257,43 +279,43 @@ h1, h2 {
 
 /* Beginner tile set */
 .beginnerPair1 {
-  background: url("../img/beginner/beginnerPair1.png") center center;
-  background-size: contain;
+  background: url("../img/beginner/beginnerPair1.png") no-repeat center center;
+  background-size: cover;
 }
 
 .beginnerPair2 {
-  background: url("../img/beginner/beginnerPair2.png") center center;
-  background-size: contain;
+  background: url("../img/beginner/beginnerPair2.png") no-repeat center center;
+  background-size: cover;
 }
 
 .beginnerPair3 {
-  background: url("../img/beginner/beginnerPair3.png") center center;
-  background-size: contain;
+  background: url("../img/beginner/beginnerPair3.png") no-repeat center center;
+  background-size: cover;
 }
 
 .beginnerPair4 {
-  background: url("../img/beginner/beginnerPair4.png") center center;
-  background-size: contain;
+  background: url("../img/beginner/beginnerPair4.png") no-repeat center center;
+  background-size: cover;
 }
 
 .beginnerPair5 {
-  background: url("../img/beginner/beginnerPair5.png") center center;
-  background-size: contain;
+  background: url("../img/beginner/beginnerPair5.png") no-repeat center center;
+  background-size: cover;
 }
 
 .beginnerPair6 {
-  background: url("../img/beginner/beginnerPair6.png") center center;
-  background-size: contain;
+  background: url("../img/beginner/beginnerPair6.png") no-repeat center center;
+  background-size: cover;
 }
 
 .beginnerPair7 {
-  background: url("../img/beginner/beginnerPair7.png") center center;
-  background-size: contain;
+  background: url("../img/beginner/beginnerPair7.png") no-repeat center center;
+  background-size: cover;
 }
 
 .beginnerPair8 {
-  background: url("../img/beginner/beginnerPair8.png") center center;
-  background-size: contain;
+  background: url("../img/beginner/beginnerPair8.png") no-repeat center center;
+  background-size: cover;
 }
 
 /* Intermediate tile set */
@@ -347,99 +369,99 @@ h1, h2 {
 
 /* Expert tile set */
 .expertPair1 {
-  background: url("../img/expert/expertPair1.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair1.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair2 {
-  background: url("../img/expert/expertPair2.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair2.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair3 {
-  background: url("../img/expert/expertPair3.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair3.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair4 {
-  background: url("../img/expert/expertPair4.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair4.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair5 {
-  background: url("../img/expert/expertPair5.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair5.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair6 {
-  background: url("../img/expert/expertPair6.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair6.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair7 {
-  background: url("../img/expert/expertPair7.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair7.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair8 {
-  background: url("../img/expert/expertPair8.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair8.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair9 {
-  background: url("../img/expert/expertPair9.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair9.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair10 {
-  background: url("../img/expert/expertPair10.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair10.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair11 {
-  background: url("../img/expert/expertPair11.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair11.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair12 {
-  background: url("../img/expert/expertPair12.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair12.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair13 {
-  background: url("../img/expert/expertPair13.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair13.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair14 {
-  background: url("../img/expert/expertPair14.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair14.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair15 {
-  background: url("../img/expert/expertPair15.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair15.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair16 {
-  background: url("../img/expert/expertPair16.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair16.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair17 {
-  background: url("../img/expert/expertPair17.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair17.png") no-repeat center center;
+  background-size: cover;
 }
 
 .expertPair18 {
-  background: url("../img/expert/expertPair18.png") center center;
-  background-size: contain;
+  background: url("../img/expert/expertPair18.png") no-repeat center center;
+  background-size: cover;
 }
 
 
 /* Special tile classes */
 .faceDown {
-  background: url("../img/background.jpg") center center no-repeat;
+  background: url("../img/background.jpg") no-repeat center center;
 }
 
 .completed {
@@ -452,6 +474,7 @@ h1, h2 {
 #restartButton {
   margin: 18px 0px;
   font-size: 18px;
+  padding: 6px 8px 4px;
 }
 
 
@@ -467,5 +490,5 @@ h1, h2 {
   font-size: 1.5vh;
   font-family: "Helvetica", sans-serif;
   text-align: center;
-  padding: 1vh;
+  padding: .5vh;
 }
