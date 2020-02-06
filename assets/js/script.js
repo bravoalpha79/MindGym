@@ -80,10 +80,10 @@ var gameBoard = {
       view.displayFailureMessage();
       setTimeout(function () {
         view.unflipTiles(tileOne, tileTwo);
-      }, 1500);
+      }, 1000);
       setTimeout(function () {
         handlers.clickExpect();
-      }, 1600);
+      }, 1100);
     } else {
       view.displaySuccessMessage();
       setTimeout(function () {

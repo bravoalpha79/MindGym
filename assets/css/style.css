@@ -244,10 +244,6 @@ nav {
   transition: transform .5s;
 }
 
-.tile:hover {
-  filter: brightness(110%);
-}
-
 @media screen and (min-width: 768px) {
   .tile {
     height: 11vw;
@@ -480,7 +476,12 @@ nav {
 
 /* Special tile classes */
 .faceDown {
-  background: url("../img/background.jpg") no-repeat center center;
+  background: url("../img/background.jpg") no-repeat;
+  background-size: contain;
+}
+
+.faceDown:hover {
+  filter: brightness(80%);
 }
 
 .completed {
