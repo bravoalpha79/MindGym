@@ -69,7 +69,7 @@ describe("MindGym", function() {
             expect(gameBoard.checkBoardCleared).not.toHaveBeenCalled();
         })
 
-        it("should check if board is clear if the two tiles match", function() {
+        it("should check if board is clear if the tiles match", function() {
             jasmine.getFixtures().set(
                 `<div id="1" class="tile beginnerPair5"></div>
                 <div id="3" class="tile beginnerPair6 faceDown"></div>
@@ -81,8 +81,5 @@ describe("MindGym", function() {
             expect(handlers.clickExpect).not.toHaveBeenCalled();
             expect(gameBoard.checkBoardCleared).toHaveBeenCalled();
         })
-
-        
     })
-
 })
