@@ -6,12 +6,12 @@ body {
 
 h1, h2 {
   font-weight: bold;
-  color: purple;
+  color: #800080;
 }
 
 h1 {
   font-size: 54px;
-  text-shadow: 2px 2px 2px salmon;
+  text-shadow: 2px 2px 2px #fa8072;
 }
 
 small {
@@ -22,7 +22,7 @@ small {
 /* --- Navbar --- */
 
 nav {
-  background-color: purple;
+  background-color: #800080;
   min-height: 5vh;
 }
 
@@ -42,7 +42,7 @@ nav {
 
 .container-fluid, 
 .container-md {
-  background-color: blanchedalmond;
+  background-color: #ffebcd;
 }
 
 .homeWrapper,
@@ -80,7 +80,7 @@ nav {
 
 .homeForm button, 
 #restartButton {
-  border: .5px solid white;
+  border: .5px solid #ffffff;
 }
 
 .homeForm button {
@@ -91,7 +91,7 @@ nav {
 }
 
 .homeForm i {
-  color: lightskyblue
+  color: #87cefa;
 }
 
 .homeForm i:hover {
@@ -201,20 +201,20 @@ nav {
   height: 100%;
   backface-visibility: hidden;
   border-radius: 5px;
-  box-shadow: 4px 4px 4px saddlebrown;
+  box-shadow: 4px 4px 4px #8b4513;
 }
 
 .levelButtonFront {
-  background-color: rgb(248, 236, 219);
-  border: .5px solid saddlebrown;
+  background-color:#f8ecdb;
+  border: .5px solid #8b4513;
 }
 
 .levelButtonBack {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: lightblue;
-  border: 1px solid burlywood;
+  background-color: #add8e6;
+  border: 1px solid #deb887;
   transform: rotateY(180deg);
 }
 
@@ -225,14 +225,14 @@ nav {
 .levelButtonBack img,
 .levelButtonBack div {
   margin: 0 auto 12px;
-  border: .5px solid black;
+  border: .5px solid #000000;
   border-radius: 5px;
 }
 
 .levelButtonBack div {
   height: 80px;
   width: 80px;
-  background-color: blueviolet;
+  background-color: #8a2be2;
   margin: 0 auto 12px;
 }
 
@@ -258,9 +258,9 @@ nav {
   display: inline-block;
   padding: 0;
   margin: 6px;
-  border: 1px solid black;
+  border: 1px solid #000000;
   border-radius: 8px;
-  box-shadow: 2px 2px 2px darkblue;
+  box-shadow: 2px 2px 2px #00008b;
 }
 
 /* Beginner tile set */
@@ -306,51 +306,51 @@ nav {
 
 /* Intermediate tile set */
 .intermediatePair1 {
-  background-color: blueviolet;
+  background-color: #8a2be2;
 }
 
 .intermediatePair2 {
-  background-color: plum;
+  background-color: #dda0dd;
 }
 
 .intermediatePair3 {
-  background-color: cornflowerblue;
+  background-color: #6495ed;
 }
 
 .intermediatePair4 {
-  background-color: chartreuse;
+  background-color: #7fff00;
 }
 
 .intermediatePair5 {
-  background-color: beige;
+  background-color: #f5f5dc;
 }
 
 .intermediatePair6 {
-  background-color: coral;
+  background-color: #ff7f50;
 }
 
 .intermediatePair7 {
-  background-color: darkred;
+  background-color: #8b0000;
 }
 
 .intermediatePair8 {
-  background-color: teal;
+  background-color: #008080;
 }
 
 .intermediatePair9 {
-  background-color: navy;
+  background-color: #000080;
 }
 
 .intermediatePair10 {
-  background-color: turquoise;
+  background-color: #40e0d0;
 }
 
 .intermediatePair11 {
-  background-color: grey;
+  background-color: #808080;
 }
 
 .intermediatePair12 {
-  background-color: yellow;
+  background-color: #ffff00;
 }
 
 /* Expert tile set */
@@ -471,8 +471,8 @@ nav {
 /* --- Instructions modal --- */
 
 .modal-content {
-  background-color: blanchedalmond;
-  color: purple;
+  background-color: #ffebcd;
+  color: #800080;
 }
 
 .modal-title {
@@ -487,8 +487,8 @@ nav {
 }
 
 .btn--modal {
-  background-color: purple;
-  color: white;
+  background-color: #800080;
+  color: #ffffff;
 }
 
 /* --- Footer --- */
