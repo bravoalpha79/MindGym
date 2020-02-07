@@ -19,6 +19,8 @@ small {
   font-weight: 300;
 }
 
+/* --- Navbar --- */
+
 nav {
   background-color: purple;
   min-height: 5vh;
@@ -35,6 +37,8 @@ nav {
 .navbar li {
   margin-left: 24px;
 }
+
+/* --- Containers and wrappers --- */
 
 .container-fluid, 
 .container-md {
@@ -61,6 +65,15 @@ nav {
   background-size: contain;
 }
 
+.levelWrapper {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Play button (home) --- */
+
 .homeForm {
   margin-top: 45vh;
 }
@@ -85,32 +98,27 @@ nav {
   filter: brightness(110%);
 }
 
-.levelWrapper {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-}
+/* --- Avatar and message areas --- */
 
 .messageArea {}
 
+/** 
+* avatarArea default display set to none because 
+* it is intended to be displayed only at screen widths above 1700px. 
+**/
 .avatarArea {
   display: none;
 }
 
 #messageAreaTop {
-  height: 10vh;
+  height: 6vh;
   margin-bottom: 12px;
-  font-size: 3vh;
+  font-size: 4vh;
   font-weight: bold;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-}
-
-#messageAreaSide {
-  display: none;
 }
 
 .avatarImage {
@@ -122,8 +130,9 @@ nav {
   background-size: contain;
 }
 
+/* --- Speech bubble --- */
 
-/* Speech bubble code obtained from https://leaverou.github.io/bubbly/ and adapted */
+/* code obtained from https://leaverou.github.io/bubbly/ and adapted. */
 .bubbleWrapper {
   position: absolute;
   top: 15%;
@@ -161,10 +170,9 @@ nav {
   margin-bottom: -20px;
 }
 
-/** 
- * Level selection buttons.
- * Flip animation code obtained from W3Schools and adapted.
- **/
+/* --- Level selection buttons --- */
+
+/* Flip animation code obtained from W3Schools and adapted. */
 .levelButton {
   display: inline-block;
   height: 200px;
@@ -197,7 +205,8 @@ nav {
 }
 
 .levelButtonFront {
-  background-color: blanchedalmond;
+  background-color: rgb(248, 236, 219);
+  border: .5px solid saddlebrown;
 }
 
 .levelButtonBack {
@@ -227,6 +236,8 @@ nav {
   margin: 0 auto 12px;
 }
 
+/* --- Game area and tile styling --- */
+
 #gameArea {
   background-color: rgba(0,0,0,0.2);
   border-radius: 5px;
@@ -239,7 +250,6 @@ nav {
   justify-content: center;
   align-items: center;
   align-content: center;
-  overflow: none;
 }
 
 .tile {
@@ -252,54 +262,6 @@ nav {
   border-radius: 8px;
   box-shadow: 2px 2px 2px darkblue;
 }
-
-@media screen and (min-width: 768px) {
-  .tile {
-    height: 11vw;
-    width: 11vw;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .tile {
-    height: 9.5vw;
-    width: 9.5vw;
-  }
-}
-
-
-@media screen and (min-width: 1200px) {
-  #gameArea {
-    flex-direction: column wrap;
-    max-width: 65%;
-    padding: 24px;
-  }
-
-  .tile {
-    height: 7.5vw;
-    width: 7.5vw;
-  }
-}
-
-@media screen and (min-width: 1700px) {
-  #messageAreaTop {
-    display: none;
-  }
-
-  #messageAreaSide {
-    display: initial;
-  }
-
-  .avatarArea {
-    display: initial;
-  }
-
-  .tile {
-    height: 6vw;
-    width: 6vw;
-  }
-}
-
 
 /* Beginner tile set */
 .beginnerPair1 {
@@ -482,7 +444,6 @@ nav {
   background-size: cover;
 }
 
-
 /* Special tile classes */
 .faceDown {
   background: url("../img/background.jpg") no-repeat;
@@ -496,13 +457,18 @@ nav {
 .completed {
   background: transparent;
   border: none;
+  box-shadow: none;
 }
+
+/* --- Restart/Play Again button --- */
 
 #restartButton {
   margin: 18px 0px;
   font-size: 18px;
   padding: 6px 8px 4px;
 }
+
+/* --- Instructions modal --- */
 
 .modal-content {
   background-color: blanchedalmond;
@@ -525,6 +491,8 @@ nav {
   color: white;
 }
 
+/* --- Footer --- */
+
 .footerBar {
   background-color: #b3ff00;
   height: 3vh;
@@ -533,3 +501,48 @@ nav {
   text-align: center;
   padding: .5vh;
 }
+
+/* --- Media queries --- */
+
+@media screen and (min-width: 768px) {
+  .tile {
+    height: 11vw;
+    width: 11vw;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .tile {
+    height: 9.5vw;
+    width: 9.5vw;
+  }
+}
+
+
+@media screen and (min-width: 1200px) {
+  #gameArea {
+    max-width: 65%;
+    padding: 24px;
+  }
+
+  .tile {
+    height: 7.5vw;
+    width: 7.5vw;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  #messageAreaTop {
+    display: none;
+  }
+
+  .avatarArea {
+    display: initial;
+  }
+
+  .tile {
+    height: 6vw;
+    width: 6vw;
+  }
+}
+
