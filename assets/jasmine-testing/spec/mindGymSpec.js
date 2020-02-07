@@ -143,7 +143,7 @@ describe("MindGym Testing", function() {
     })
 
     describe("adding of 'completed' for removal of matched pairs", function() {
-        it("should add 'completed' and 'faceDown' to selected & unmatched tile pair", function() {
+        it("should add 'completed' and 'faceDown' to matched tile pair", function() {
             jasmine.getFixtures().set(
             `<div id="5" class="tile beginnerPair5"></div>
             <div id="9" class="tile beginnerPair2 faceDown"></div>
