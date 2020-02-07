@@ -53,6 +53,7 @@ nav {
   padding-top: 36px;
 }
 
+/* "Perfect background image" code snippet obtained from CSS-Tricks and adapted. */
 .levelWrapper, 
 .gameWrapper {
   background: url("../img/gym.jpg") no-repeat center center fixed;
