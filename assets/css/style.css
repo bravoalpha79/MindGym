@@ -250,7 +250,7 @@ nav {
   margin: 6px;
   border: 1px solid black;
   border-radius: 8px;
-  transition: transform .5s;
+  box-shadow: 2px 2px 2px darkblue;
 }
 
 @media screen and (min-width: 768px) {
@@ -490,7 +490,7 @@ nav {
 }
 
 .faceDown:hover {
-  filter: brightness(80%);
+  filter: brightness(90%);
 }
 
 .completed {
