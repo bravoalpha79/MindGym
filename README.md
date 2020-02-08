@@ -6,7 +6,7 @@ MindGym is a browser-based classic Memory game.
  
 ### User stories
 
-The website is intended primarily for younger users (children) who enjoy playing Memory. However, the Experienced and Hero difficulty levels may also appeal to older users who like a casual game which also trains their memory. 
+The game is intended primarily for younger users (children) who enjoy playing Memory. However, the Experienced and Hero difficulty levels may also appeal to older users who like a casual game which also trains their memory. 
 
 The following user stories have been identified:
 
@@ -22,7 +22,7 @@ The following user stories have been identified:
 
 Taking into consideration the above user stories, the following basic UI structure has been established:
 
- - Home page with a large cartoon-style "hero image", a large Play button and a small adjacent Info icon to open Instuctions (in modal format);
+ - Home page with a large cartoon-style "hero image", a large Play button and a small adjacent Info icon to open Instructions (in modal format);
  - Level selection page with on-hover flip cards for difficulty level selection, each card providing information (on its flip side) about the respective level's features;
  - Gameplay page, displaying the game tile set and in-game messages, and containing a Restart button.
 
@@ -30,7 +30,7 @@ A top-fixed navigation bar in the header contains the MindGym favicon and naviga
 
 The footer contains copyright information only.
 
-The color palette has been styled to be cartoon-like and vivid but not overwhelming.
+The colour palette has been selected to be cartoon-like and vivid but not overwhelming.
 
 Three wireframes were created (using [wireframe.cc](https://wireframe.cc/)) during the initial UI design phase:
 
@@ -75,7 +75,7 @@ A message area, displaying in-game messages, is implemented dynamically:
 
 ### Features Left to Implement
 - Add the "Elapsed time" feature (user story #7) and modify the corresponding Game completion message to indicate the time of game completion; possibly add a Pause button;
-- Add a "Best times" page, where after a game the user could enter their name and their accomplishment would be displayed in a table sorted by difficilty levels and best times of previous plays; 
+- Add a "Best times" page, where after a game the user could enter their name and their accomplishment would be displayed in a table sorted by difficulty levels and best times of previous plays; 
 - Add a flip animation to game tiles (corresponding to the one on Level selection);
 - Add sounds (tile flip, matching tiles, non-matching tiles, game completed...);
 
