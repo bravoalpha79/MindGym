@@ -106,7 +106,9 @@ The languages, frameworks, libraries, and other tools used during this project:
 - [GitHub](https://github.com/) was used for source code storage and site deployment (GitHub Pages).
 
 
+## Testing
 
+The test procedure and results are detailed in a [separate document](testing.md).
 
 ## Deployment
 
