@@ -89,7 +89,7 @@ var gameBoard = {
       setTimeout(function () {
         view.removeMatchedTiles(tileOne, tileTwo);
         gameBoard.checkBoardCleared();
-      }, 1500);
+      }, 1000);
     }
   },
 

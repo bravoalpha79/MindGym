@@ -11,7 +11,7 @@ describe("MindGym Testing", function() {
             expect(tileSets.intermediate.length).toBe(24);
             expect(tileSets.intermediate[0]).toBe(1);
             expect(tileSets.intermediate[23]).toBe(24);
-            expect(tileSets.intermediate).toEqual(jasmine.arrayContaining([19, 20, 21, 22]));
+            expect(tileSets.intermediate).toEqual(jasmine.arrayContaining([18, 19, 20, 21, 22]));
         })
         it("expert set should contain 36 tiles numbered 1 to 36", function() {
             expect(tileSets.expert.length).toBe(36);
@@ -20,8 +20,6 @@ describe("MindGym Testing", function() {
             expect(tileSets.expert).toEqual(jasmine.arrayContaining([26, 27, 28, 29, 30]));
         })
     })
-
-    
 
     describe("check if two tiles have been selected", function() {
         beforeEach(function() {
@@ -53,6 +51,7 @@ describe("MindGym Testing", function() {
         beforeEach(function() {
             spyOn(handlers, "clickExpect");
             spyOn(gameBoard, "checkBoardCleared");
+            spyOn(view, "removeMatchedTiles");
             jasmine.clock().install();
         })
         afterEach(function() {
@@ -67,9 +66,10 @@ describe("MindGym Testing", function() {
                 );
             let selectedTiles = $(".tile").not(".faceDown");
             gameBoard.checkMatch(selectedTiles);
-            jasmine.clock().tick(1501);
+            jasmine.clock().tick(1101);
             expect(handlers.clickExpect).toHaveBeenCalled();
             expect(gameBoard.checkBoardCleared).not.toHaveBeenCalled();
+            expect(view.removeMatchedTiles).not.toHaveBeenCalled();
         })
 
         it("should check if board is clear if the tiles match", function() {
@@ -80,9 +80,10 @@ describe("MindGym Testing", function() {
                 );
             let selectedTiles = $(".tile").not(".faceDown");
             gameBoard.checkMatch(selectedTiles);
-            jasmine.clock().tick(1501);
+            jasmine.clock().tick(1101);
             expect(handlers.clickExpect).not.toHaveBeenCalled();
             expect(gameBoard.checkBoardCleared).toHaveBeenCalled();
+            expect(view.removeMatchedTiles).toHaveBeenCalled();
         })
     })
 
@@ -118,7 +119,10 @@ describe("MindGym Testing", function() {
     })
 
     describe("removing and adding of 'faceDown' for flipping of selected tile(s)", function() {
-        it("should remove 'faceDown' from selected tile", function() {
+        beforeEach(function () {
+            spyOn(gameBoard, "isPair");
+        })
+        it("should remove 'faceDown' from selected tile and check if towo tiles are selected", function() {
             jasmine.getFixtures().set(
             `<div id="6" class="tile expertPair7 faceDown"></div>
             <div id="11" class="tile expertPair8 faceDown"></div>`
@@ -126,6 +130,7 @@ describe("MindGym Testing", function() {
             view.selectTile(6);
             expect($("#6")).not.toHaveClass("faceDown");
             expect($("#11")).toHaveClass("faceDown");
+            expect(gameBoard.isPair).toHaveBeenCalled();
         })
         it("should add 'faceDown' to selected & unmatched tile pair", function() {
             jasmine.getFixtures().set(
@@ -133,8 +138,9 @@ describe("MindGym Testing", function() {
             <div id="14" class="tile intermediatePair8"></div>
             <div id="17" class="tile intermediatePair1 faceDown"></div>`
             );
-            var one = $(".tile").not(".faceDown")[0];
-            var two = $(".tile").not(".faceDown")[1];
+            var pair = $(".tile").not(".faceDown");
+            var one = pair[0];
+            var two = pair[1];
             view.unflipTiles(one, two);
             expect($("#2")).toHaveClass("faceDown");
             expect($("#14")).toHaveClass("faceDown");
@@ -150,8 +156,9 @@ describe("MindGym Testing", function() {
             <div id="14" class="tile beginnerPair5"></div>
             `
             );
-            var one = $(".tile").not(".faceDown")[0];
-            var two = $(".tile").not(".faceDown")[1];
+            var pair = $(".tile").not(".faceDown");
+            var one = pair[0];
+            var two = pair[1];
             view.removeMatchedTiles(one, two);
             expect($("#5")).toHaveClass("faceDown");
             expect($("#5")).toHaveClass("completed");

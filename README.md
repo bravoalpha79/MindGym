@@ -21,7 +21,7 @@ The languages, frameworks, libraries, and other tools used during this project:
 - [W3schools.com Color Converter](https://www.w3schools.com/colors/colors_converter.asp) was used to convert colours between default, HEX and RGB for CSS coding purposes;
 - [Autoprefixer CSS online](https://autoprefixer.github.io/) was used for correct vendor prefixing of CSS styles where required;
 - [Convertio](https://convertio.co/eps-jpg/) was used for image conversion from EPS (from Shutterstock) to JPEG;
-- [Compress JPEG](https://compressjpeg.com/) for image file size reduction;
+- [Compress JPEG](https://compressjpeg.com/) and [Compress PNG](https://compresspng.com/) for image file size reduction;
 - Google Chrome Developer Tools were used for console development and testing, debugging and as a styling aid;
 - [Gitpod](https://www.gitpod.io/) was used as the IDE for development and Git version control;
 - [GitHub](https://github.com/) was used for source code storage and site deployment (GitHub Pages).
