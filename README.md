@@ -117,7 +117,7 @@ The languages, frameworks, libraries, and other tools used during this project:
    1. On the bravoalpha79/MindGym repository page, make sure that the "master" branch is selected.
    2. Click on the Settings tab.
    3. In the GitHub Pages frame, from the Source dropdown menu, choose "master branch".
-   4. Scrool back down to the GitHub Pages frame, where the address of the newly-published site is now displayed.
+   4. Scroll back down to the GitHub Pages frame, where the address of the newly-published site is now displayed.
 
    The deployed site code is identical to the code stored on the master branch on GitHub.
 
