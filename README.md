@@ -36,11 +36,11 @@ Three wireframes were created (using [wireframe.cc](https://wireframe.cc/)) duri
 
 [Home page](https://wireframe.cc/uiqQ2d)   
 [Level selection](https://wireframe.cc/EaLrPF)  
-[Gameplay](https://wireframe.cc/QKaQTL)  
+[Gameplay](https://wireframe.cc/7wVKft)  
 
 Two details are different in the final game design compared to the wireframes:   
 - the Instructions button was replaced by a small Info ("?") icon to avoid having the word "instructions" repeated twice on the same page;
-- the "Time elapsed" feature was not implemented in this version due to eventual time constraints; as a result, User story #7 will need to be fulfilled in a future version.
+- the "Time elapsed" feature was not implemented in this version due to eventual time constraints (no pun intended!); as a result, User story #7 will need to be fulfilled in a future version.
 
 ## Features
 
@@ -66,18 +66,18 @@ The level selection "buttons" are implemented as on-hover flip cards. The front 
 Clicking on a flipped card will select the chosen difficulty level and start the game with it.
 
 #### Gameplay page
-The central area of the page is occupied by the game tiles. 
-Below the "play area" is a Restart button which, if clicked during a game, will restart the game with the same difficulty level (but with rearranged tiles).
-Once a game is completed (board clear), the Restart button changes to a "Play again?" button which, if clicked, will navigate the user to Level selection.
+The central area of the page is occupied by the game tiles.    
+Below the "play area" is a Restart button which, if clicked during a game, will restart the game with the same difficulty level (but with rearranged tiles).   
+Once a game is completed (board clear), the Restart button changes to a "Play again?" button which, if clicked, will navigate the user to Level selection.   
 A message area, displaying in-game messages, is implemented dynamically:
 - at screen widths below 1700px, the message area is above the tile area and displays text only;
-- at large desktop widths of 1700px or above, the message area is positioned to the left of the tile area and features an "avatar" (the same cartoon character from the Home page image) and the message appearing in a "message bubble", comics-style. 
+- at large desktop widths of 1700px or above, the message area is positioned to the left of the tile area and features an "avatar" (the same cartoon character from the Home page image) and the message appearing in a comics-style "message bubble". 
 
 ### Features Left to Implement
-- Add the "Elapsed time" feature (user story #7) and modify the corresponding Game completion message to indicate the time of game completion; possibly add a Pause button;
+- Add the "Elapsed time" feature (User story #7) and modify the corresponding Game completion message to indicate the time of game completion; possibly add a Pause button;
 - Add a "Best times" page, where after a game the user could enter their name and their accomplishment would be displayed in a table sorted by difficulty levels and best times of previous plays; 
 - Add a flip animation to game tiles (corresponding to the one on Level selection);
-- Add sounds (tile flip, matching tiles, non-matching tiles, game completed...);
+- Add sounds (tile flip, matching tiles, non-matching tiles, game completed...).
 
 ## Technologies Used
 
