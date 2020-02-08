@@ -10,7 +10,8 @@ No code issues have been identified.
 
 ## Automated testing
 
-Automated testing of Javascript has been performed using [Jasmine](https://jasmine.github.io/index.html) framework. [jasmine-jquery](https://www.npmjs.com/package/jasmine-jquery) was added to Jasmine as jQuery was also used to develop the app.   
+Automated testing of JavaScript has been performed using [Jasmine](https://jasmine.github.io/index.html) framework. [jasmine-jquery](https://www.npmjs.com/package/jasmine-jquery) was added to Jasmine as jQuery was also used to develop the app.      
+
 The relevant code for Jasmine tests can be found here:
 - [HTML with Jasmine and jasmine-jquery scripts](https://github.com/bravoalpha79/MindGym/blob/master/assets/jasmine-testing/test.html);
 - [Jasmine specifications file](https://github.com/bravoalpha79/MindGym/blob/master/assets/jasmine-testing/spec/mindGymSpec.js)
@@ -20,7 +21,8 @@ To run the tests:
 2. Load the repository into your IDE.
 3. Open the test.html file and run/preview it in your browser.
 
-The automated tests cover 7 of the total 18 functions defined in the JavaScript code. The reason for this rather limited scope of automated tests lies in the fact that this is my first ever project involving Javascript and the first one involving Jasmine. Somewhere in the middle of JS development I ran into some serious issues that I was not able to fix for several days, which cased an eventual overall delay in development, so the time remaining for developing Jasmine tests - which involved a second learning curve - was very restricted.   
+The automated tests cover 7 of the total 18 functions defined in the JavaScript code. The reason for this rather limited scope of automated tests lies in the fact that this is my first ever project involving JavaScript and the first one involving Jasmine. Somewhere in the middle of JS development I ran into some serious issues that I was not able to fix for several days, which cased an eventual overall delay in development, so the time remaining for developing Jasmine tests - which involved a second learning curve - was very restricted.   
+
 For the same reason, TDD was not applied to this project. Instead, Jasmine tests were written once the JavaScript part was completed and proven to be working in all manual tests.
 
 ## Manual testing
@@ -46,7 +48,7 @@ For the same reason, TDD was not applied to this project. Instead, Jasmine tests
 5. As a user, I want to be provided with in-game feedback on my progress.
    - appropriate in-game messages are displayed to the user at each of the following events:
      - at game start;
-     - upon succesful pair matching;
+     - upon successful pair matching;
      - upon unsuccessful pair matching;
      - upon game completion.   
 
@@ -73,48 +75,115 @@ For the same reason, TDD was not applied to this project. Instead, Jasmine tests
 11. Check that the display of images and icons on all pages is complete and correct within the overall page structure.
 
 12. On Gameplay page, check that the display of tiles is correct on all difficulty level settings:
-   - tile back is correct;
-   - tile front (flipped) is correct.
+    - tile back is correct;
+    - tile front (flipped) is correct.
 
 13. Check that the textual parts contain no typos.
 
-14. Using a different web browser, repeat tests 1 through 6.
+14. Using a different web browser, repeat tests 7 through 12.
+
+
+### Gameplay
+
+#### Tile sets
+
+15. Start a game with Rookie difficulty level.
+Check that the expected number of tiles is displayed an they are all "face down".   
+On Gameplay page, open Chrome Developer tools.   
+In the Console, enter `$(".tile").removeClass("faceDown");`   
+Check that all and only the expected tiles are displayed.
+
+16. Start a game with Experienced difficulty level and repeat actions of Test 15.
+17. Start a game with Hero difficulty level and repeat actions of Test 15.
+
+#### Tile selection
+
+18. Click on a tile. Check that the "front" side of the selected tile becomes displayed.
+
+19. Select two tiles. If they match:
+
+    - check that a success message is displayed;
+    - check that the tiles disappear from the board.
+
+20. Select two tiles. If they don't match:
+    - check that a failure message is displayed;
+    - check that after a short time (approx. 1 second) the two tiles are "flipped back".
+
+21. Try to select three tiles in quick succession (within one second for 2nd and 3rd tile).
+Check that it is impossible to select a third tile before the previous two are either flipped back (if non-matching) or removed (if matching).
+
+#### In-game messages
+
+22. Start a game with any difficulty setting. Check that a "Good luck!" message is displayed.
+
+23. Complete a game (at any difficulty setting). Check that a game completion message is displayed.
+
 
 ### Interactive Components
 
 #### Navigation
 
-15. From Home page:  
-   - In the Navbar, click on the Navbar favicon. Check that the Home page opens.
-   - In the Navbar, click on the _Home_ field. Check that the Home page opens.
-   - In the Navbar, click on the _Play_ field. Check that the Level selection page opens.
-   - In the Navbar, click on the _Instructions_ field. Check that the Instruction modal opens.
+24. From Home page:  
+    - In the Navbar, click on the favicon. Check that the Home page opens.
+    - In the Navbar, click on the _Home_ field. Check that the Home page opens.
+    - In the Navbar, click on the _Play_ field. Check that the Level selection page opens.
+    - In the Navbar, click on the _Instructions_ field. Check that the Instruction modal opens.
 
-16. From Level selection page, repeat actions 1 through 4 of Test 15.
+25. From Level selection page, repeat actions 1 through 4 of Test 22.
  
-17. From Gameplay page, repeat actions 1 through 4 of Test 15.
+26. From Gameplay page, repeat actions 1 through 4 of Test 22.
 
 
 #### Buttons and modals
 
-18. On Home page, Click on the "Play!" button. Check that the browser navigates to the Level selection page.   
+27. On Home page, Click on the "Play!" button. Check that the browser navigates to the Level selection page.   
 
-19. On Home page, click on the Info ("?") icon. Check that the Instructions modal opens.     
+28. On Home page, click on the Info ("?") icon. Check that the Instructions modal opens.   
+Check that the modal can be closed:
+
+       - by clicking on the close icon ("x");
+       - by clicking on the Close button;
+       - by clicking anywhere outside the modal area.      
     
-20. On Gameplay page, on Rookie difficulty setting, find two matching tiles. Remember their positions.   
+29. On Gameplay page, on Rookie difficulty setting, find two matching tiles. Remember their positions.   
 Click the Restart button. Check that the game is restarted with the same number of tiles (16).   
 Check that the tiles in the positions of the two previous tiles are now different.
 
-21. On Gameplay page, on Rookie difficulty setting, complete a game.   
+30. On Gameplay page, on Rookie difficulty setting, complete a game.   
 Check that the Restart button is replaced by a "Play again?" button.   
 Click the button. Check that the browser navigates to the Level selection page.
 
 #### Flip cards
 
-22. On Level selection page, for each of the three level cards:   
-          - check that on hover, the card "flips", and it flips back when the mouse pointer leaves it;   
-          - check that the card's flip side displays the respective level's settings (number of pairs and tile sample).
-     
+31. On Level selection page, for each of the three level cards:
+
+       - check that on hover, the card "flips", and it flips back when the mouse pointer leaves it;   
+       - check that the card's flip side displays the respective level's settings (number of pairs and tile sample);
+       - check that, when the card is flipped and clicked, the Gameplay opens with the chosen difficulty level.
+
+
+### Responsive Design
+
+32. Using Google Chrome Development Tools in Responsive view, check the rendering and layout of each of the three pages in the following width ranges:
+    1. below 576px;
+    2. at and above 576px but below 768px;
+    3. at and above 768px but below 992px;
+    4. at and above 992px but below 1200px;
+    5. at and above 1200px but below 1700px;
+    6. at and above 1700px;
+
+33. For screen widths 1700px and above, on Gameplay page:
+
+     - check that the in-game messages are no longer displayed above the tile area;
+     - check that the cartoon "avatar" is displayed to the left of the tile area;
+     - check that in-game messages are displayed in a message bubble above the "avatar".
+ 
+34. Using Google Chrome Development Tools in Emulated Device view, check the rendering and layout of each of the three pages on the following emulated devices:
+    - iPad Pro (large screen),
+    - Kindle Fire HDX (medium screen),
+    - Galaxy S5 (extra small screen).
+ 
+35. Check the rendering and layout of each of the three pages on a physical device of your choice.
 
 
 
