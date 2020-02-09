@@ -6,7 +6,7 @@ Before testing the application itself, all code has been tested using online val
 - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) for CSS;
 - [JSHint](https://jshint.com/) for JavaScript.
 
-No code issues have been identified.
+No code errors have been identified.
 
 ## Automated testing
 
