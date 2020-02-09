@@ -6,7 +6,7 @@ Before testing the application itself, all code has been tested using online val
 - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) for CSS;
 - [JSHint](https://jshint.com/) for JavaScript.
 
-No code errors have been identified.
+**No code errors have been identified.**
 
 ## Automated testing
 
@@ -24,6 +24,8 @@ To run the tests:
 The automated tests cover 7 of the total 18 functions defined in the JavaScript code. The reason for this rather limited scope of automated tests lies in the fact that this is my first ever project involving JavaScript and the first one involving Jasmine. Somewhere in the middle of JS development I ran into some serious issues that I was not able to fix for several days, which cased an eventual overall delay in development, so the time remaining for developing Jasmine tests - which involved a second learning curve - was very restricted.   
 
 For the same reason, TDD was not applied to this project. Instead, Jasmine tests were written once the JavaScript part was completed and proven to be working in all manual tests.
+
+**All automated tests have been passed successfully.** 
 
 ## Manual testing
 
