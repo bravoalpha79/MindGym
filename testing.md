@@ -85,6 +85,26 @@ For the same reason, TDD was not applied to this project. Instead, Jasmine tests
 14. Using a different web browser, repeat tests 7 through 12.
 
 
+----
+**Identified Issue #1**:   
+On Gameplay page, the navbar Home link is wrongly indicated (colour-coded) as active/current.   
+
+_Investigation:_ HTML code inspection reveals that gameplay.html wrongly contained the Bootstrap class "active" for the Home nav-link anchor, and it also contained an sr-only span denoting it as "current".   
+
+_Solution:_   
+In gameplay.html, remove the "active" class and the sr-only span from the Home nav-link anchor.  
+Check other pages' HTML to make sure that a similar error is not present there as well.
+
+_Verification:_ 
+1. Re-validate the corrected HTML code.
+2. Repeat Test 8 on all tested browsers.
+
+**_Result:_**
+
+
+----
+
+
 ### Gameplay
 
 #### Tile sets
