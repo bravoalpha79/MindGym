@@ -80,7 +80,7 @@ describe("MindGym Testing", function() {
                 );
             let selectedTiles = $(".tile").not(".faceDown");
             gameBoard.checkMatch(selectedTiles);
-            jasmine.clock().tick(1101);
+            jasmine.clock().tick(1501);
             expect(handlers.clickExpect).not.toHaveBeenCalled();
             expect(gameBoard.checkBoardCleared).toHaveBeenCalled();
             expect(view.removeMatchedTiles).toHaveBeenCalled();
