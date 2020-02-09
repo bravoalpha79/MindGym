@@ -157,7 +157,7 @@ The application is ready for official deployment.**
 - The "perfect background image" CSS code snippet (used for styling of background images on all pages) was obtained from [CSS-tricks](https://css-tricks.com/).
 - The "message bubble" CSS code snippet was obtained from [Bubbly](https://leaverou.github.io/bubbly/).
 - The tile flip animation HMTL/CSS code snippet (for levelselection.html) was obtained from [W3Schools](https://www.w3schools.com/).
-- The correct script order for test.html was obtained by taking a peek into a project by **anna_ci**.  
+- The correct script order for test.html, as well as the suggestion on how to describe the Jasmine test procedure to the reader of the README, was obtained by taking a peek into a project by **anna_ci**.  
 #### JavaScript
 - The array generation algorithm was suggested by **Eventyret_mentor**.
 - The Shuffle Array algorithm was obtained from [Stack Overflow](https://stackoverflow.com/).
