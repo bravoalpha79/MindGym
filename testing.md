@@ -100,8 +100,10 @@ _Verification:_
 2. Repeat Test 8 on all tested browsers.
 
 **_Result:_**
+1. Corrected HTML code validated OK.
+2. Test 8 passed successfully on Google Chrome, Safari and MS Edge. Issue no longer present.     
 
-
+    **_Issue #1 is cosidered corrected and closed._**
 ----
 
 
