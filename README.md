@@ -160,7 +160,7 @@ The application is ready for official deployment.**
 - The correct script order for test.html, as well as the suggestion on how to describe the Jasmine test procedure to the reader of the README, was obtained by taking a peek into a project by **anna_ci**.  
 #### JavaScript
 - The array generation algorithm was suggested by **Eventyret_mentor**.
-- The Shuffle Array algorithm was obtained from [Stack Overflow](https://stackoverflow.com/).
+- The Shuffle Array algorithm, as well as the "\xA0" string to address the HTML "&nbsp", was obtained from [Stack Overflow](https://stackoverflow.com/).
 - The localStorage solution was obtained from W3Schools and Stack Overflow.
 - The handlers.clickExpect method is based on a video lesson by [Watch and Code](https://watchandcode.com/) and a post on Stack Overflow.
 
