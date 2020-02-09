@@ -218,8 +218,17 @@ Click the button. Check that the browser navigates to the Level selection page.
  
 35. Check the rendering and layout of each of the three pages on a physical device of your choice.
 
+**All Responsive Design tests have been performed successfully. No issue has been identified.**
 
+_Note: Test 35 was performed on LG Wine Smart (LG H410) Android smartphone, with extra small screen (480x320px). The following has been observed:
+1. On Home page, scrolling is required to reach the Play button. Also, the Play button is too far from the main picture compared to the footer.
+2. On Gameplay page, at Hero level settings, some scrolling is required to reach the last rows of tiles.
 
+However, since screens of this small size are infrequent:
+1. Adding an additional media query for the affected screen size, to improve the button display on this particular device, is deemed superfluous at this point in version development.
+2. Reducing tile size to view all tiles without scrolling would cause the tiles to become too small and their faces illegible.
+
+_Therefore the above observation will be logged as **Observation #1**, but not treated as an issue._
 
 
 
