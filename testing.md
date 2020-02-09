@@ -129,9 +129,9 @@ Check that it is impossible to select a third tile before the previous two are e
     - In the Navbar, click on the _Play_ field. Check that the Level selection page opens.
     - In the Navbar, click on the _Instructions_ field. Check that the Instruction modal opens.
 
-25. From Level selection page, repeat actions 1 through 4 of Test 22.
+25. From Level selection page, repeat actions 1 through 4 of Test 24.
  
-26. From Gameplay page, repeat actions 1 through 4 of Test 22.
+26. From Gameplay page, repeat actions 1 through 4 of Test 24.
 
 
 #### Buttons and modals
