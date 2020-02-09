@@ -106,6 +106,10 @@ _Verification:_
     **_Issue #1 is cosidered corrected and closed._**
 ----
 
+**With Google Chrome as primary test browser, and Safari and MS Edge as alternate test browsers, all structural integrity tests have been passed successfully.  
+_#Issue #1_ has been identified, analysed, fixed and verified.   
+No further issues found.**
+
 
 ### Gameplay
 
