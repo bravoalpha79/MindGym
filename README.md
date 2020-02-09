@@ -110,6 +110,30 @@ The languages, frameworks, libraries, and other tools used during this project:
 
 The test procedure and results are detailed in a [separate document](testing.md).
 
+Testing summary:
+1. All HTML, CSS and JavaScript code has been validated successfully.
+2. All automated (Jasmine) tests have been passed successfully.
+3. All relevant User stories (excluding #7, see clarification under **UI structure**) have been fulfilled.
+4. During structural integrity testing, one issue was raised:  
+_**Issue #1**: On Gameplay page, the navbar Home link is wrongly indicated (colour-coded) as active/current._  
+Issue #1_ has been identified, analysed, fixed and verified, and is considered closed. No further issues were identified.  
+Therefore all structural integrity tests are considered as passed successfully.
+5. All Gameplay tests have been passed successfully. No issue has been identified.
+6. All Interactive Components tests have been passed successfully. No issue has been identified.
+7. All Responsive Design tests have been performed successfully. The following observation has been raised:   
+
+   _**Observation #1**:   
+On test device LG Wine Smart (LG H410) Android smartphone, with extra small screen (480x320px):_  
+_- on Home page, scrolling is required to reach the Play button; also, the Play button is (too) far from the main picture compared to the footer;_  
+_- on Gameplay page, at Hero level settings, some scrolling is required to reach the last three rows of tiles._  
+_Considering that screens of this small size are infrequent, the above observation is not treated as an issue at this point._
+                          
+
+**Testing conclusion:   
+All relevant tests have been passed successfully and relevant issues fixed.
+The application is ready for official deployment.**
+
+
 ## Deployment
 
    The deployment version of the source code is stored on [GitHub](https://github.com/), in the master branch of [bravoalpha79/MindGym](https://github.com/bravoalpha79/MindGym).
