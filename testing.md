@@ -146,6 +146,8 @@ Check that it is impossible to select a third tile before the previous two are e
 
 23. Complete a game (at any difficulty setting). Check that a game completion message is displayed.
 
+**All Gameplay tests have been passed successfully. No issue has been identified.**
+
 
 ### Interactive Components
 
@@ -188,6 +190,9 @@ Click the button. Check that the browser navigates to the Level selection page.
        - check that on hover, the card "flips", and it flips back when the mouse pointer leaves it;   
        - check that the card's flip side displays the respective level's settings (number of pairs and tile sample);
        - check that, when the card is flipped and clicked, the Gameplay opens with the chosen difficulty level.
+
+**All Interactive components tests have been passed successfully. No issue has been identified.**
+
 
 
 ### Responsive Design
