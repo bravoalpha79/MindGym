@@ -21,7 +21,7 @@ To run the tests:
 2. Load the repository into your IDE.
 3. Open the test.html file and run/preview it in your browser.
 
-The automated tests cover 7 of the total 18 functions defined in the JavaScript code. The reason for this rather limited scope of automated tests lies in the fact that this is my first ever project involving JavaScript and the first one involving Jasmine. Somewhere in the middle of JS development I ran into some serious issues that I was not able to fix for several days, which cased an eventual overall delay in development, so the time remaining for developing Jasmine tests - which involved a second learning curve - was very restricted.   
+The automated tests cover 7 of the total 18 functions defined in the JavaScript code. The reason for this rather limited scope of automated tests lies in the fact that this is my first ever project involving JavaScript and the first one involving Jasmine. Somewhere in the middle of JS development I ran into some serious issues that I was not able to fix for several days, which caused an eventual overall delay in development, so the time remaining for developing Jasmine tests - which involved a second learning curve - was very restricted.   
 
 For the same reason, TDD was not applied to this project. Instead, Jasmine tests were written once the JavaScript part was completed and proven to be working in all manual tests.
 
@@ -58,6 +58,7 @@ For the same reason, TDD was not applied to this project. Instead, Jasmine tests
    - a Restart button is available during a game; clicking it will restart the game with unchanged difficulty settings;
    - a Play Again button becomes available upon game completion; clicking it will take the user to Level selection. 
 
+**All relevant User stories have been fulfilled.**
 
 ### Structural integrity testing
   
@@ -103,7 +104,7 @@ _Verification:_
 1. Corrected HTML code validated OK.
 2. Test 8 passed successfully on Google Chrome, Safari and MS Edge. Issue no longer present.     
 
-    **_Issue #1 is cosidered corrected and closed._**
+    **_Issue #1 is considered corrected and closed._**
 ----
 
 **With Google Chrome as primary test browser, and Safari and MS Edge as alternate test browsers, all structural integrity tests have been passed successfully.  
@@ -191,7 +192,7 @@ Click the button. Check that the browser navigates to the Level selection page.
        - check that the card's flip side displays the respective level's settings (number of pairs and tile sample);
        - check that, when the card is flipped and clicked, the Gameplay opens with the chosen difficulty level.
 
-**All Interactive components tests have been passed successfully. No issue has been identified.**
+**All Interactive Components tests have been passed successfully. No issue has been identified.**
 
 
 
@@ -220,15 +221,16 @@ Click the button. Check that the browser navigates to the Level selection page.
 
 **All Responsive Design tests have been performed successfully. No issue has been identified.**
 
-_Note: Test 35 was performed on LG Wine Smart (LG H410) Android smartphone, with extra small screen (480x320px). The following has been observed:
-1. On Home page, scrolling is required to reach the Play button. Also, the Play button is too far from the main picture compared to the footer.
-2. On Gameplay page, at Hero level settings, some scrolling is required to reach the last rows of tiles.
+_Note: Test 35 was performed on LG Wine Smart (LG H410) Android smartphone, with extra small screen (480x320px). The following has been observed:_    
 
-However, since screens of this small size are infrequent:
-1. Adding an additional media query for the affected screen size, to improve the button display on this particular device, is deemed superfluous at this point in version development.
-2. Reducing tile size to view all tiles without scrolling would cause the tiles to become too small and their faces illegible.
+_1. On Home page, scrolling is required to reach the Play button. Also, the Play button is too far from the main picture compared to the footer._   
+_2. On Gameplay page, at Hero level settings, some scrolling is required to reach the last three rows of tiles._
 
-_Therefore the above observation will be logged as **Observation #1**, but not treated as an issue._
+_However, since screens of this small size are infrequent:_  
+_1. Adding an additional media query for the affected screen size, to improve the button display just on this particular device, is deemed superfluous at this point in version development._  
+_2. Reducing tile size to view all tiles without scrolling would cause the tiles to become too small and their faces illegible._
+
+_Therefore the above observation will be logged as **Observation #1**, but is not treated as an issue._
 
 
 
